@@ -1,0 +1,300 @@
+{
+  "data": [
+    {
+      "id": "A1",
+      "groupId": "A",
+      "name": "collect data ",
+      "root": true,
+      "color": "green",
+      "primary": true,
+      "childPointers": ["B1","B2","B3","B4","B5","B6"]
+    },
+    {
+      "id": "B1",
+      "groupId": "B",
+      "name": "from ACE",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C4"]
+    },
+    {
+      "id": "B2",
+      "groupId": "B",
+      "name": "from Application Binaries",
+      "color": "green",
+      "childPointers": ["C2","C4"]
+    },
+    {
+      "id": "B3",
+      "groupId": "B",
+      "name": "from WebSphere Traditional",
+      "primary": true,
+      "color": "green",
+      "childPointers": ["C1","C2","C3","C4","C5","C6"]
+    },
+    {
+      "id": "B4",
+      "groupId": "B",
+      "name": "from WebLogic",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C4"]
+    },
+    {
+      "id": "B5",
+      "groupId": "B",
+      "name": "from JBoss",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C4"]
+    },
+    {
+      "id": "B6",
+      "groupId": "B",
+      "name": "from Tomcat",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C4"]
+    },
+    {
+      "id": "C1",
+      "groupId": "C",
+      "name": "using WSADMIN Command",
+      "color": "green",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C2",
+      "groupId": "C",
+      "name": "using Binary Scanner",
+      "color": "green",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C3",
+      "groupId": "C",
+      "name": "using Non-default parameters",
+      "color": "green",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C4",
+      "groupId": "C",
+      "name": "using TA Data Collector",
+      "primary": true,
+      "color": "green",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C5",
+      "groupId": "C",
+      "name": "using Custom Rules",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C6",
+      "groupId": "C",
+      "name": "using Backup server configuration",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "D1",
+      "groupId": "D",
+      "name": "upload results manually one by one",
+      "color": "green",
+      "childPointers": ["E1","E2","E3","E4","E5"]
+    },
+    {
+      "id": "D2",
+      "groupId": "D",
+      "name": "upload results automatically",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["E1","E2","E3","E4","E5"]
+    },
+    {
+      "id": "D3",
+      "groupId": "D",
+      "name": "upload results manually in bulk",
+      "color": "green",
+      "childPointers": ["E1","E2","E3","E4","E5"]
+    },
+    {
+      "id": "E1",
+      "groupId": "E",
+      "name": "view results by WAS ND Cluster",
+      "color": "green",
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "E2",
+      "groupId": "E",
+      "name": "view results by user-defined Groups",
+      "color": "green",
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "E3",
+      "groupId": "E",
+      "name": "view all results",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "E4",
+      "groupId": "E",
+      "name": "view results with filtering",
+      "color": "green",
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "E5",
+      "groupId": "E",
+      "name": "view results as CSV export",
+      "color": "green",
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "F1",
+      "groupId": "F",
+      "name": "deploy a Simple app to tWas Base in Containers",
+      "color": "black",
+      "childPointers": ["G1","G2"]
+    },
+    {
+      "id": "F2",
+      "groupId": "F",
+      "name": "deploy a Simple app to Liberty",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["G1"]
+    },
+    {
+      "id": "F3",
+      "groupId": "F",
+      "name": "deploy a Simple app to Kubernetes",
+      "color": "black",
+      "childPointers": ["G1"]
+    },
+    {
+      "id": "G1",
+      "groupId": "G1",
+      "name": "resolve issues for a Moderate app",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["H2","H3","H4","G2","H5","H6","H7"]
+    },
+    {
+      "id": "G2",
+      "groupId": "G2",
+      "name": "validate modernization approach (ROI)",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["H1"]
+    },
+    {
+      "id": "H1",
+      "groupId": "H1",
+      "name": "execute modernization approach (mass mod)",
+      "primary": true,
+      "color": "green",
+      "childPointers": ["J1","J2"]
+    },
+    {
+      "id": "H2",
+      "groupId": "H2",
+      "name": "resolve issues with multiple solutions",
+      "color": "black"
+    },
+    {
+      "id": "H3",
+      "groupId": "H2",
+      "name": "resolve issues with concise solutions",
+      "color": "green"
+    },
+    {
+      "id": "H4",
+      "groupId": "H2",
+      "name": "resolve issues with a Quick Fix",
+      "color": "black"
+    },
+    {
+      "id": "H5",
+      "groupId": "H2",
+      "name": "resolve issues with JPA",
+      "color": "green"
+    },
+    {
+      "id": "H6",
+      "groupId": "H2",
+      "name": "resolve issues with EEJB connections",
+      "color": "black"
+    },
+    {
+      "id": "H7",
+      "groupId": "H2",
+      "name": "resolve issues with EEJB transaction propagation",
+      "color": "black"
+    },
+    {
+      "id": "J1",
+      "groupId": "J",
+      "name": "create app deployment pipeline",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["K1","K2"]
+    },
+    {
+      "id": "J2",
+      "groupId": "J2",
+      "name": "integrate with Vault",
+      "color": "green",
+      "primary": false
+    },
+    {
+      "id": "K1",
+      "groupId": "K",
+      "name": "deploy multiple apps from Cluster or Group",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["L1","L2","L3","L4"]
+    },
+    {
+      "id": "K2",
+      "groupId": "K2",
+      "name": "integrate with IBM Financial Services Cloud",
+      "color": "black",
+      "primary": false
+    },
+    {
+      "id": "L1",
+      "groupId": "L",
+      "name": "configure app database session persistence",
+      "color": "green",
+      "primary": false
+    },
+    {
+      "id": "L2",
+      "groupId": "L",
+      "name": "configure app in-memory session persistence",
+      "color": "green",
+      "primary": false
+    },
+    {
+      "id": "L3",
+      "groupId": "L",
+      "name": "configure app database transaction logging",
+      "color": "green",
+      "primary": false
+    },
+    {
+      "id": "L4",
+      "groupId": "L",
+      "name": "configure app in-memory transaction logging",
+      "color": "black",
+      "primary": false
+    }
+
+  ]
+}

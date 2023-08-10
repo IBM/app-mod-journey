@@ -1,0 +1,25 @@
+{
+  "name": "collect using",
+  "root": true,
+  "primary": true,
+  "children": [
+    {
+      "name": "WSADMIN Command",
+      "children": [
+        {
+          "name": "p1"
+        }
+        ]
+    },
+    {
+      "name": "Binary Scanner",
+      "children": [
+        {
+          "name": "p2"
+        }
+      ]
+    }
+  ]
+}
+
+
