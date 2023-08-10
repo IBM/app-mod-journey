@@ -1,0 +1,46 @@
+.DS_Store
+app/.DS_Store
+npm_debug.log
+
+# lands_adviser: e.g. if you commit lands_advisor from lands_ui
+.idea
+*.iml
+
+build
+
+!scripts/build
+
+.gradle
+
+out/
+
+logs/
+
+server/config/config.dev.yml
+server/config/mute-config.dev.yml
+
+manifest.dev.yml
+
+# feel free to remove that folder in your development process, if you want a clean webpack rebuild
+cache
+
+#eclips
+.settings
+.project
+.classpath
+
+# nodejs
+node_modules/
+# webpack
+dist_server/
+dist/
+production_build/
+
+# introducing kubectl installation, for ICP dev and test, substitute PLATFORM to amd64
+DevDockerfile
+DevRhelDockerfile
+
+#cypress
+.nyc_output/
+coverage/
+*.env
