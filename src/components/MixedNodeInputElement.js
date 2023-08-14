@@ -288,7 +288,6 @@ class MixedNodeElement extends Component {
 
                         <div style={{backgroundColor: 'white'}}>
                             {/*this.getFontColor(nodeData.color)*/}
-                            {console.info('nodeData >>> ', nodeData)}
                             <span onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave} style={{backgroundColor: 'white', color: nodeData.primary ? 'black' : 'grey' , fontWeight: nodeData.primary ? '700':'400', fontSize: '25px'}}>{nodeData.name}</span>
                             { nodeData.root? (<div/>) :
                                 <div style={{backgroundColor: 'white'}}>
