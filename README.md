@@ -16,13 +16,17 @@ It will allow customers and sellers to see build a full path with their ideal op
  - The 'build' directory will be created 
  - You can run the code locally by hitting 'build/index.html' from your browser
 
+## Developing the code
+ - You can setup a a full npm + node server environment to dynamically test your updates
+ - However, the build is so fast it is pretty much as quick to manually trigger and the build and then refresh your browser page, no server needed
+
 ## Updating the tree
  - The tree is built dynamically from a json file => 'src/examples/ta-generate.json'
  - Each node in the tree is defined in json with attributes describing it and also it's position in the tree
  - The 'childPointers' array indicates what nodes this node will point to
  - A node never defines who points to it, if you want to move a node then you need to change what nodes point to it!
  - 'docs' & 'videos' attributes define a URL to follow when they are clicked. If these are not dfined they will appear in the UI as grey, un-clickable text
- - 'description' attribute is what yu will see when you mouse over a node
+ - 'description' attribute is what you will see when you mouse over a node
  
 ## Hosted site
  - The git-pages for this repo hosts the site and can be found here: https://ibm.github.io/app-mod-journey
