@@ -28,6 +28,9 @@
       "id": "B3",
       "groupId": "B",
       "name": "from WebSphere Traditional",
+      "description": "This is the description",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/index.html",
+      "videos" : "https://www.youtube.com/watch?v=bF24sHHKrnY",
       "primary": true,
       "color": "green",
       "childPointers": ["C1","C2","C3","C4","C5","C6"]
