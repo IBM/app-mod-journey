@@ -470,7 +470,7 @@ class App extends Component {
           <a href='#' onClick={() => this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")))}>generate</a> | */}
           <span><a href='#' onClick={() => this.showModal()}> About</a> </span> |
           <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Hide full selected path ' : ' Show full selected path '}</a> </span> |
-          <span><a href='#'> Contribute</a> </span>
+          <span><a target='_blank' href='https://github.com/IBM/app-mod-journey/tree/main'> Contribute</a> </span>
         </h5>
         <Modal
             isOpen={this.state.showDialog}

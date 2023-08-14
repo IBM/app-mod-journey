@@ -3,7 +3,6 @@ import { Component } from 'react';
 import taTest from '../examples/ta-test.json';
 
 let descriptionTimerInfo = {timerId: null, nodeName: ''};
-let descText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu feugiat nibh, ac auctor leo. Suspendisse sit amet auctor neque, eget sagittis est.';
 
 class MixedNodeElement extends Component {
 
@@ -289,12 +288,13 @@ class MixedNodeElement extends Component {
 
                         <div style={{backgroundColor: 'white'}}>
                             {/*this.getFontColor(nodeData.color)*/}
+                            {console.info('nodeData >>> ', nodeData)}
                             <span onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave} style={{backgroundColor: 'white', color: nodeData.primary ? 'black' : 'grey' , fontWeight: nodeData.primary ? '700':'400', fontSize: '25px'}}>{nodeData.name}</span>
                             { nodeData.root? (<div/>) :
                                 <div style={{backgroundColor: 'white'}}>
-                                    <span><a target='_blank' href={'https://ibm.github.io/app-mod-journey/details/index.html'}>Docs</a></span>
+                                    <span>{nodeData.docs ? (<a target='_blank' href={nodeData.docs}>Docs</a>) : 'Docs'}</span>
                                     <span> | </span>
-                                    <span><a target='_blank' href={'https://www.youtube.com/watch?v=bF24sHHKrnY'}>Video</a></span>
+                                    <span>{nodeData.videos ? (<a target='_blank' href={nodeData.videos}>Videos</a>) : 'Videos'}</span>
                                 </div>}
                         </div>
                     </div>
@@ -318,7 +318,7 @@ class MixedNodeElement extends Component {
                         >
                             <span style={{color: 'black', fontWeight: '400', fontSize: '20px'}}>
                                 <p>{nodeData.name}</p>
-                                <p>{descText}</p>
+                                <p>{nodeData.description ? nodeData.description : ''}</p>
                             </span>
                         </div>
                     </foreignObject>
