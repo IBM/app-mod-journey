@@ -252,6 +252,7 @@
       "id": "J2",
       "groupId": "J2",
       "name": "integrate with Vault",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/J2-vault-integration",
       "color": "green",
       "primary": false
     },
@@ -274,6 +275,7 @@
       "id": "L1",
       "groupId": "L",
       "name": "configure app database session persistence",
+      "docs" : "https://openliberty.io/docs/latest/create-session-table.html",
       "color": "green",
       "primary": false
     },
@@ -281,6 +283,7 @@
       "id": "L2",
       "groupId": "L",
       "name": "configure app in-memory session persistence",
+      "docs" : "https://openliberty.io/docs/latest/distributed-session-caching.html",
       "color": "green",
       "primary": false
     },
@@ -288,6 +291,7 @@
       "id": "L3",
       "groupId": "L",
       "name": "configure app database transaction logging",
+      "docs" : "https://openliberty.io/docs/latest/transaction-service.html",
       "color": "green",
       "primary": false
     },
@@ -295,6 +299,7 @@
       "id": "L4",
       "groupId": "L",
       "name": "configure app in-memory transaction logging",
+      "docs" : "https://openliberty.io/docs/latest/transaction-service.html",
       "color": "black",
       "primary": false
     }
