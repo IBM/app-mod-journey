@@ -6,7 +6,7 @@ If there is no connection you will need to manually upload to your Recommendatio
 You can do this by going back to the Recommendations page and clicking "Upload data".
 
 If there is no connection between the scanned system and TA, the Data collector will throw an error when trying to upload. 
-You can add a flag to indicate that no upload to Transformation Advisor server will take place once the collection completes
+You can add a flag to indicate that no upload to Transformation Advisor server will take place once the collection completes and this will remove the error message.
 
 ./bin/transformationadvisor -w <WEBSPHERE_HOME_DIR> -p <PROFILE_NAME> --no-upload
 
