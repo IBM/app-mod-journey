@@ -267,6 +267,13 @@ class MixedNodeElement extends Component {
 
   render() {
       let {nodeData = {}, triggerNodeToggle, foreignObjectProps = {}} = this.props;
+      let nodeNameFontSize = '25px'
+      if(nodeData.name.length > 35) {
+          nodeNameFontSize = '22px'
+      }else {
+          nodeNameFontSize = '25px'
+      }
+
         return (
             <React.Fragment>
                 <circle r={20} onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave}></circle>
@@ -288,7 +295,7 @@ class MixedNodeElement extends Component {
 
                         <div style={{backgroundColor: 'white'}}>
                             {/*this.getFontColor(nodeData.color)*/}
-                            <span onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave} style={{backgroundColor: 'white', color: nodeData.primary ? 'black' : 'grey' , fontWeight: nodeData.primary ? '700':'400', fontSize: '25px'}}>{nodeData.name}</span>
+                            <span onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave} style={{backgroundColor: 'white', color: nodeData.primary ? 'black' : 'grey' , fontWeight: nodeData.primary ? '700':'400', fontSize: nodeNameFontSize}}>{nodeData.name}</span>
                             { nodeData.root? (<div/>) :
                                 <div style={{backgroundColor: 'white'}}>
                                     <span style={{fontSize: 22}}>{nodeData.docs ? (<a target='_blank' href={nodeData.docs}>Docs</a>) : ''}</span>
