@@ -62,7 +62,7 @@
       "groupId": "C",
       "name": "using WSADMIN Command",
       "color": "green",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/wsadminDataCollector.md",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/wsadminDataCollector",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -85,7 +85,7 @@
       "name": "using TA Data Collector",
       "primary": true,
       "color": "green",
-      "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands.md",
+      "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -113,7 +113,7 @@
       "name": "upload results automatically",
       "color": "green",
       "primary": true,
-      "docs" : "https://ibm.github.io/app-mod-journey/details/uploadResults.md",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/uploadResults",
       "childPointers": ["E1","E2","E3","E4","E5"]
     },
     {
