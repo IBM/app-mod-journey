@@ -460,7 +460,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1 style={{textAlign: 'center'}}><img width="36" height="36" src={'./favicon.png'}></img> End to End Application Modernization Exemplar <span style={{fontSize:'20px'}}> with Transformation Advsior</span></h1>
+        <h1 style={{textAlign: 'center'}}><img width="36" height="36" src={'./favicon.png'}></img> Java Application Modernization Playbook <span style={{fontSize:'20px'}}> with Transformation Advsior</span></h1>
         {/*<h1> Mass Modernization Exemplar || <span style={{fontSize:'20px'}}><span style={{color:'green'}}>Green Nodes </span> = in scope for MVP</span></h1> */}
         {/*<h3> {this.state.actionSentence} </h3>*/}
         <hr/>

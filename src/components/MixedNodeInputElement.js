@@ -291,9 +291,9 @@ class MixedNodeElement extends Component {
                             <span onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave} style={{backgroundColor: 'white', color: nodeData.primary ? 'black' : 'grey' , fontWeight: nodeData.primary ? '700':'400', fontSize: '25px'}}>{nodeData.name}</span>
                             { nodeData.root? (<div/>) :
                                 <div style={{backgroundColor: 'white'}}>
-                                    <span>{nodeData.docs ? (<a target='_blank' href={nodeData.docs}>Docs</a>) : 'Docs'}</span>
-                                    <span> | </span>
-                                    <span>{nodeData.videos ? (<a target='_blank' href={nodeData.videos}>Videos</a>) : 'Videos'}</span>
+                                    <span>{nodeData.docs ? (<a target='_blank' href={nodeData.docs}>Docs</a>) : ''}</span>
+                                    <span> {(nodeData.docs && nodeData.videos) ? ('|') : ''} </span>
+                                    <span>{nodeData.videos ? (<a target='_blank' href={nodeData.videos}>Videos</a>) : ''}</span>
                                 </div>}
                         </div>
                     </div>
