@@ -222,11 +222,11 @@ class MixedNodeElement extends Component {
                                 {nodeData.root ? (<div/>) :
                                     <div style={{backgroundColor: 'white'}}>
                                         <span style={{fontSize: 22}}>{nodeData.docs ? (
-                                            <a target='_blank' href={nodeData.docs}>Docs</a>) : ''}</span>
+                                            <a href={nodeData.docs}>Docs</a>) : ''}</span>
                                         <span
                                             style={{fontSize: 22}}> {(nodeData.docs && nodeData.videos) ? ('|') : ''} </span>
                                         <span style={{fontSize: 22}}>{nodeData.videos ? (
-                                            <a target='_blank' href={nodeData.videos}>Videos</a>) : ''}</span>
+                                            <a href={nodeData.videos}>Videos</a>) : ''}</span>
                                     </div>}
                             </div>
                         </div>
