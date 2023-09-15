@@ -104,8 +104,9 @@
     {
       "id": "D1",
       "groupId": "D",
-      "name": "upload results manually one by one",
+      "name": "upload results manually",
       "color": "green",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/uploadResultsManually",
       "childPointers": ["E1","E2","E3","E4","E5"]
     },
     {
@@ -122,6 +123,7 @@
       "groupId": "D",
       "name": "upload results manually in bulk",
       "color": "green",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/bulkUploadResults",
       "childPointers": ["E1","E2","E3","E4","E5"]
     },
     {
