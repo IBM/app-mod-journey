@@ -70,6 +70,7 @@
       "groupId": "C",
       "name": "using Binary Scanner",
       "color": "green",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/binaryScannerDataCollection",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -178,6 +179,7 @@
       "id": "F3",
       "groupId": "F",
       "name": "deploy a Simple app to Kubernetes",
+      "docs": "https://www.ibm.com/docs/en/cta?topic=ma-how-deploy-your-app-red-hat-openshift-container-platform",
       "color": "black",
       "childPointers": ["G1"]
     },
