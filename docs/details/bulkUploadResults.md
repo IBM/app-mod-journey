@@ -3,7 +3,7 @@
 
 In this document you will learn how to prepare data for bulk upload and use the Transformation Advisor APIs to execute the upload.    
 
-The execution of the Data Collector will result in a number of zip files begin produce
+The execution of the Data Collector will result in a number of zip files being produced
  - One for each profile scanned
  - One for each shared library location discovered
 
@@ -44,7 +44,7 @@ The bulk upload happens in two stages
 6. Click 'Execute'
 7. The API should give a response that indicates the bulk upload is being processed and provide a URL
    1. This is an asynchronous process, you will get a response with the status URL once the file has been uploaded.
-8. Copy the status URL into your browser to see the progress of the upload. It will not refresh automatically, so you need to do that to see continous progress.
+8. Copy the status URL into your browser to see the progress of the upload. It will not refresh automatically, so you need to refresh to see the progress update.
 9. Once the status reaches 'Bulk upload complete' you are done.
 10. Open Transformation Advisor and navigate to the newly created workspace that will have all of your data
 

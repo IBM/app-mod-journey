@@ -3,7 +3,7 @@
 
 In this document you will learn how to manually upload data via the Transformation Advisor UI   
 
-The execution of the Data Collector will result in a number of zip files begin produce
+The execution of the Data Collector will result in a number of zip files being produced
  - One for each profile scanned
  - One for each shared library location discovered
 
@@ -28,7 +28,7 @@ Note: While a file upload is in progress, no other file upload can be executed
 4. When the upload is complete the page will automatically redirect to the recommendations page, and the new recommendations will be generated
 5. That's it!
 
-NOTE: After each upload the full recommendations for the wrokspace need to be regenerated. This is why it is faster to use the bulk upload if you have multiple files.
+NOTE: After each upload the full recommendations for the workspace need to be regenerated. This is why it is faster to use the bulk upload if you have multiple files.
 
 
 
