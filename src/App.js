@@ -11,11 +11,7 @@ import './App.css';
 // Data examples
 import orgChartJson from './examples/org-chart.json.bck';
 import ta from './examples/ta.json';
-import taVerb from './examples/ta-verb.json';
-import taTest from './examples/ta-test.json';
 import taGenerate from './examples/ta-generate.json';
-import flareJson from './examples/d3-hierarchy-flare.json';
-import reactTree from './examples/reactRepoTree';
 
 import Modal from 'react-modal';
 
@@ -124,6 +120,7 @@ class App extends Component {
       enableLegacyTransitions: false,
       transitionDuration: 500,
       renderCustomNodeElement: customNodeFnMapping['input'].fn,
+      showingBranches: true,
       showingAll: false,
       showDialog: false,
       closeModal: this.closeModal,
@@ -322,9 +319,14 @@ class App extends Component {
     this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
   }
 
+  showBranches() {
+    console.info('showBranches');
+    this.setState({showingBranches: !this.state.showingBranches});
+  }
+
   showAll() {
 
-    let newDepth = this.state.showingAll ? 1 : 50;
+    let newDepth = this.state.showingAll ? 2 : 50;
     this.state.initialDepth = newDepth;
     this.setState({showingAll: !this.state.showingAll});
     let newData = Object.assign({}, this.state.data); //We need this to be a new object to make the tree re-render
@@ -469,7 +471,8 @@ class App extends Component {
           <a href='#' onClick={() => this.setTreeData(taVerb)}>verb-path</a> |
           <a href='#' onClick={() => this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")))}>generate</a> | */}
           <span><a href='#' onClick={() => this.showModal()}> About</a> </span> |
-          <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Hide full selected path ' : ' Show full selected path '}</a> </span> |
+          <span><a href='#' onClick={() => this.showBranches()}>{this.state.showingBranches ? ' Hide unselected node text ' : ' Show unselected node text'}</a> </span> |
+          <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Hide full tree ' : ' Show full tree'}</a> </span> |
           <span><a target='_blank' href='https://github.com/IBM/app-mod-journey/tree/main'> Contribute</a> </span>
         </h5>
         <Modal
