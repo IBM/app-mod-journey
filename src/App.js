@@ -97,6 +97,7 @@ class App extends Component {
     this.changePrimaryInGroupAndReload = this.changePrimaryInGroupAndReload.bind(this);
 
     this.state = {
+      tocMode: false, //Table of contents mode
       data: ta,
       updateTree: this.setTreeData,
       changePrimary: this.changePrimaryInGroupAndReload,
@@ -319,8 +320,29 @@ class App extends Component {
     this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
   }
 
+  showToc() {
+    this.setState({tocMode: !this.state.tocMode});
+  }
+
+  generateToc() {
+    if(!this.state.tocMode) {
+      return null;
+    }
+
+    let generatedTOC = [];
+    for(let entry of taGenerate.data) {
+      let text = (
+          <div key={entry.name} >
+            <span style={{color: entry.primary ? 'black' : 'grey', fontWeight: entry.primary ? '700' : '400'}} >{entry.name}</span>{entry.docs ? (<span> | <a target="_blank" href={entry.docs}> Docs</a></span>) : null}{entry.videos ? (<span> | <a target="_blank" href={entry.videos}> | Videos</a></span>) : null}
+          </div>
+      );
+      generatedTOC.push(text);
+    }
+
+    return generatedTOC;
+  }
+
   showBranches() {
-    console.info('showBranches');
     this.setState({showingBranches: !this.state.showingBranches});
   }
 
@@ -345,7 +367,6 @@ class App extends Component {
   getEntryFromGeneratedData(entryId) {
     for(let entry of taGenerate.data) {
       if(entryId === entry.id) {
-        //console.info("Match: ", entry);
         return entry;
       }
     }
@@ -383,11 +404,9 @@ class App extends Component {
         }
       }
     }
-    console.info('AFTER == taGenerate.data: ', taGenerate.data);
     //let newData = this.generateTreeData();
     let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
     //let newData = this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
-    console.info('newData=== ',newData);
     this.setTreeData(newData);
     //this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
   }
@@ -454,11 +473,11 @@ class App extends Component {
   }
 
   render() {
-    //let generatedData = this.generateTreeData();
-    //console.info('generatedData == ', generatedData);
-    //let rootNode = this.getEntryFromGeneratedData("A1");
-    //let tree = this.populateAllTreeData(rootNode);
-    //console.info('TREE:: ', tree);
+
+    let toc = null;
+    if(this.state.tocMode) {
+      toc = this.generateToc();
+    }
 
     return (
       <div className="App">
@@ -471,6 +490,7 @@ class App extends Component {
           <a href='#' onClick={() => this.setTreeData(taVerb)}>verb-path</a> |
           <a href='#' onClick={() => this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")))}>generate</a> | */}
           <span><a href='#' onClick={() => this.showModal()}> About</a> </span> |
+          <span><a href='#' onClick={() => this.showToc()}>{this.state.tocMode ? ' Show Tree ' : ' Show Table of Contents'}</a> </span> |
           <span><a href='#' onClick={() => this.showBranches()}>{this.state.showingBranches ? ' Hide unselected node text ' : ' Show unselected node text'}</a> </span> |
           <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Hide full tree ' : ' Show full tree'}</a> </span> |
           <span><a target='_blank' href='https://github.com/IBM/app-mod-journey/tree/main'> Contribute</a> </span>
@@ -487,7 +507,12 @@ class App extends Component {
 
         <div className="demo-container">
           <div className="column-right">
-            <div ref={tc => (this.treeContainer = tc)} className="tree-container">
+            {this.state.tocMode ?
+                (<div style={{ height: '100%', margin: '20px'}}>
+                  {toc}
+                </div>)
+              :
+              <div ref={tc => (this.treeContainer = tc)} className="tree-container">
               <Tree
                 hasInteractiveNodes
                 data={this.state.data}
@@ -538,6 +563,7 @@ class App extends Component {
                 }}
               />
             </div>
+            }
           </div>
         </div>
       </div>

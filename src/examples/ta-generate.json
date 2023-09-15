@@ -208,7 +208,7 @@
       "name": "execute modernization approach (mass mod)",
       "primary": true,
       "color": "green",
-      "childPointers": ["J1","J2"]
+      "childPointers": ["J1"]
     },
     {
       "id": "H2",
@@ -252,15 +252,7 @@
       "name": "create app deployment pipeline",
       "color": "green",
       "primary": true,
-      "childPointers": ["K1","K2"]
-    },
-    {
-      "id": "J2",
-      "groupId": "J2",
-      "name": "integrate with Vault",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/J2-vault-integration",
-      "color": "green",
-      "primary": false
+      "childPointers": ["K1","K2","K3"]
     },
     {
       "id": "K1",
@@ -272,7 +264,15 @@
     },
     {
       "id": "K2",
-      "groupId": "K2",
+      "groupId": "K",
+      "name": "integrate with Vault",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/J2-vault-integration",
+      "color": "green",
+      "primary": false
+    },
+    {
+      "id": "K3",
+      "groupId": "K",
       "name": "integrate with IBM Financial Services Cloud",
       "color": "black",
       "primary": false
