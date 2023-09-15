@@ -93,6 +93,7 @@
       "id": "C5",
       "groupId": "C",
       "name": "using Custom Rules",
+      "docs": "https://ibm.github.io/app-mod-journey/details/userDefinedRules",
       "childPointers": ["D1","D2","D3"]
     },
     {
