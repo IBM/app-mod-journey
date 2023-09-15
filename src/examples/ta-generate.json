@@ -179,7 +179,7 @@
       "id": "F3",
       "groupId": "F",
       "name": "deploy a Simple app to Kubernetes",
-      "Docs": "https://www.ibm.com/docs/en/cta?topic=ma-how-deploy-your-app-red-hat-openshift-container-platform",
+      "docs": "https://www.ibm.com/docs/en/cta?topic=ma-how-deploy-your-app-red-hat-openshift-container-platform",
       "color": "black",
       "childPointers": ["G1"]
     },
