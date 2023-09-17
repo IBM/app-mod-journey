@@ -266,7 +266,7 @@
       "id": "K2",
       "groupId": "K",
       "name": "integrate with Vault",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/J2-vault-integration",
+      "docs" : "https://transformationadvisor-sdk.github.io/details/J2-vault-integration",
       "color": "green",
       "primary": false
     },
