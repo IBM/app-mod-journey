@@ -167,6 +167,7 @@
       "id": "F1",
       "groupId": "F",
       "name": "deploy a Simple app to tWas Base in Containers",
+      "docs": "https://ibm.github.io/app-mod-journey/details/twasContainers",
       "color": "black",
       "childPointers": ["G1","G2"]
     },
