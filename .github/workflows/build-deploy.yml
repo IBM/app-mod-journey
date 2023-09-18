@@ -39,7 +39,7 @@ jobs:
           node-version: 14.21.3
           cache: npm
       - name: Run the "npm install" command
-        run: npm install
+        run: npm ci
       - name: Run the "npm run build" command
         run: npm run build     
       - name: Upload artifact
