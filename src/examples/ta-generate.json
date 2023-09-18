@@ -100,6 +100,7 @@
       "id": "C6",
       "groupId": "C",
       "name": "using Backup server configuration",
+      "docs": "https://www.ibm.com/docs/en/cta?topic=collector-running-dc-copy-was-config",
       "childPointers": ["D1","D2","D3"]
     },
     {
