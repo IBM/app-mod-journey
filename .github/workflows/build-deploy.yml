@@ -37,7 +37,7 @@ jobs:
           node-version: 16.20.2
           cache: npm
       - name: Run the "npm install" command
-        run: npm ci
+        run: npm install
       - name: Run the "npm run build" command
         run: npm run build  
       - name: Setup Pages
