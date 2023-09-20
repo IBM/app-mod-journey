@@ -62,7 +62,7 @@
       "groupId": "C",
       "name": "using WSADMIN Command",
       "color": "green",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/wsadminDataCollector",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/wsadminDataCollector-JK",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -70,7 +70,7 @@
       "groupId": "C",
       "name": "using Binary Scanner",
       "color": "green",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/binaryScannerDataCollection",
+      "docs" : "https://transformationadvisor-sdk.github.io/details/binaryScannerDataCollection",
       "childPointers": ["D1","D2","D3"]
     },
     {
