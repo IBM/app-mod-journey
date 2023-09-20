@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: 14.21.3
+          node-version: 16.20.2
           cache: npm
       - name: Run the "npm install" command
         run: npm ci
