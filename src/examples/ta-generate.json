@@ -78,6 +78,7 @@
       "groupId": "C",
       "name": "using Non-default parameters",
       "color": "green",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/customProperties",
       "childPointers": ["D1","D2","D3"]
     },
     {
