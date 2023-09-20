@@ -62,7 +62,7 @@
       "groupId": "C",
       "name": "using WSADMIN Command",
       "color": "green",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/wsadminDataCollector-JK",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/wsadminDataCollector",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -70,7 +70,7 @@
       "groupId": "C",
       "name": "using Binary Scanner",
       "color": "green",
-      "docs" : "https://transformationadvisor-sdk.github.io/details/binaryScannerDataCollection",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/binaryScannerDataCollection",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -78,6 +78,7 @@
       "groupId": "C",
       "name": "using Non-default parameters",
       "color": "green",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/customProperties",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -100,6 +101,7 @@
       "id": "C6",
       "groupId": "C",
       "name": "using Backup server configuration",
+      "docs": "https://www.ibm.com/docs/en/cta?topic=collector-running-dc-copy-was-config",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -167,6 +169,7 @@
       "id": "F1",
       "groupId": "F",
       "name": "deploy a Simple app to tWas Base in Containers",
+      "docs": "https://ibm.github.io/app-mod-journey/details/twasContainers",
       "color": "black",
       "childPointers": ["G1","G2"]
     },
@@ -266,7 +269,7 @@
       "id": "K2",
       "groupId": "K",
       "name": "integrate with Vault",
-      "docs" : "https://transformationadvisor-sdk.github.io/details/J2-vault-integration",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/J2-vault-integration",
       "color": "green",
       "primary": false
     },
