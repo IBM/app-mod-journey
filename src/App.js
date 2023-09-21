@@ -173,7 +173,6 @@ class App extends Component {
   };
 
   setTreeData(data) {
-    console.info('..... setTreeData .....', data);
     this.setState({
       data/*,
       totalNodeCount: countNodes(0, Array.isArray(data) ? data[0] : data),*/
@@ -325,13 +324,32 @@ class App extends Component {
     this.setState({tocMode: !this.state.tocMode});
   }
 
+  getSectionNameFromGroupId(groupId) {
+    for(let section of taGenerate.tocSections) {
+      if(section.groupId == groupId) {
+        return section.name
+      }
+    }
+    return null;
+  }
+
   generateToc() {
     if(!this.state.tocMode) {
       return null;
     }
 
+    let sectionSet = new Set(taGenerate.tocSections);
+    let groupSet = new Set();
     let generatedTOC = [];
+    generatedTOC.push(<h1>Table of Contents</h1>);
     for(let entry of taGenerate.data) {
+      //Check if this is teh first entry for the group,a nd add the heading for the group if it is
+      if(!groupSet.has(entry.groupId)) {
+        console.info('adding groupId: ', entry.groupId);
+        generatedTOC.push(<h2>{this.getSectionNameFromGroupId(entry.groupId)}</h2>);
+        groupSet.add(entry.groupId);
+      }
+
       let text = (
           <div key={entry.name} >
             <span style={{color: entry.primary ? 'black' : 'grey', fontWeight: entry.primary ? '700' : '400'}} >{entry.name}</span>{entry.docs ? (<span> | <a target='_blank' rel='noopener noreferrer' href={entry.docs}> Docs</a></span>) : null}{entry.videos ? (<span> | <a target='_blank' without rel='noopener noreferrer' href={entry.videos}> | Videos</a></span>) : null}
@@ -432,15 +450,12 @@ class App extends Component {
         }
       }
     }
-    console.info('NODE:: ', node);
     return node;
   }
 
   //Pass the id for the node that is clicked on and the tree will be built based on the current tree
   generateTreeData() {
-    console.info('generateTreeData......');
     let flatData = taGenerate.data;
-    console.info("flatData >>> ", flatData);
     //We always start with the root item
     let rootNode = this.getEntryFromGeneratedData("A1");
     let currentNode = rootNode;
