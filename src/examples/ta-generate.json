@@ -7,7 +7,15 @@
       "root": true,
       "color": "green",
       "primary": true,
-      "childPointers": ["B1","B2","B3","B4","B5","B6"]
+      "childPointers": ["B0","B1","B2","B3","B4","B5","B6"]
+    },
+    {
+      "id": "B0",
+      "groupId": "B",
+      "name": "from ACE",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C0"]
     },
     {
       "id": "B1",
@@ -56,14 +64,6 @@
       "primary": false,
       "color": "black",
       "childPointers": ["C4"]
-    },
-    {
-      "id": "B7",
-      "groupId": "B",
-      "name": "from ACE",
-      "primary": false,
-      "color": "black",
-      "childPointers": ["C0"]
     },
     {
       "id": "C0",
