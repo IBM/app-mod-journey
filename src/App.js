@@ -6,6 +6,7 @@ import Switch from './components/Switch';
 import MixedNodeElement from './components/MixedNodeElement';
 import PureSvgNodeElement from './components/PureSvgNodeElement';
 import MixedNodeInputElement from './components/MixedNodeInputElement';
+import Header from './components/Header/Header';
 import './App.css';
 
 // Data examples
@@ -172,7 +173,6 @@ class App extends Component {
   };
 
   setTreeData(data) {
-    console.info('..... setTreeData .....', data);
     this.setState({
       data/*,
       totalNodeCount: countNodes(0, Array.isArray(data) ? data[0] : data),*/
@@ -324,16 +324,35 @@ class App extends Component {
     this.setState({tocMode: !this.state.tocMode});
   }
 
+  getSectionNameFromGroupId(groupId) {
+    for(let section of taGenerate.tocSections) {
+      if(section.groupId == groupId) {
+        return section.name
+      }
+    }
+    return null;
+  }
+
   generateToc() {
     if(!this.state.tocMode) {
       return null;
     }
 
+    let sectionSet = new Set(taGenerate.tocSections);
+    let groupSet = new Set();
     let generatedTOC = [];
+    generatedTOC.push(<h1>Table of Contents</h1>);
     for(let entry of taGenerate.data) {
+      //Check if this is teh first entry for the group,a nd add the heading for the group if it is
+      if(!groupSet.has(entry.groupId)) {
+        console.info('adding groupId: ', entry.groupId);
+        generatedTOC.push(<h2>{this.getSectionNameFromGroupId(entry.groupId)}</h2>);
+        groupSet.add(entry.groupId);
+      }
+
       let text = (
           <div key={entry.name} >
-            <span style={{color: entry.primary ? 'black' : 'grey', fontWeight: entry.primary ? '700' : '400'}} >{entry.name}</span>{entry.docs ? (<span> | <a target="_blank" href={entry.docs}> Docs</a></span>) : null}{entry.videos ? (<span> | <a target="_blank" href={entry.videos}> | Videos</a></span>) : null}
+            <span style={{color: entry.primary ? 'black' : 'grey', fontWeight: entry.primary ? '700' : '400'}} >{entry.name}</span>{entry.docs ? (<span> | <a target='_blank' rel='noopener noreferrer' href={entry.docs}> Docs</a></span>) : null}{entry.videos ? (<span> | <a target='_blank' without rel='noopener noreferrer' href={entry.videos}> | Videos</a></span>) : null}
           </div>
       );
       generatedTOC.push(text);
@@ -431,15 +450,12 @@ class App extends Component {
         }
       }
     }
-    console.info('NODE:: ', node);
     return node;
   }
 
   //Pass the id for the node that is clicked on and the tree will be built based on the current tree
   generateTreeData() {
-    console.info('generateTreeData......');
     let flatData = taGenerate.data;
-    console.info("flatData >>> ", flatData);
     //We always start with the root item
     let rootNode = this.getEntryFromGeneratedData("A1");
     let currentNode = rootNode;
@@ -471,6 +487,19 @@ class App extends Component {
     }
     return rootNode;
   }
+  _getTreeViewActionComponent(isTreeView){
+    return(<React.Fragment>
+        {/*this.state.showingBranches ? <ViewFilled size={16}  /> : <ViewOffFilled size={16} />*/}
+
+        <span className=''><a href='#' onClick={() => this.showBranches()}>{
+          !this.state.showingBranches ? 'show selected node text' : 'hide unselected node text'}</a>
+          {/*} <Toggle id="toggle-4" labelText="unselected node text" />*/}
+        </span> <span className={'divider'}/>
+        <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' collapse tree view' : ' expand tree view'} </a> </span>
+      </React.Fragment>
+    );
+  }
+
 
   render() {
 
@@ -478,91 +507,98 @@ class App extends Component {
     if(this.state.tocMode) {
       toc = this.generateToc();
     }
+    //if its in tree view mode we should hide text
+    let isTreeView = !this.state.tocMode;
 
+    let treeViewActionComponent = this._getTreeViewActionComponent(isTreeView);
+    let actionControlCls = isTreeView ? 'tree--action-controls' : 'tree--action-controls-hide';
     return (
       <div className="App">
-        <h1 style={{textAlign: 'center'}}><img width="36" alt="Java Application Modernization Playbook icon" height="36" src={'./favicon.png'}></img> Java Application Modernization Playbook <span style={{fontSize:'20px'}}> with Transformation Advsior</span></h1>
+        <Header onClick={() => this.showModal()} {...this.props} />
+
+
         {/*<h1> Mass Modernization Exemplar || <span style={{fontSize:'20px'}}><span style={{color:'green'}}>Green Nodes </span> = in scope for MVP</span></h1> */}
         {/*<h3> {this.state.actionSentence} </h3>*/}
-        <hr/>
-        <h5 style={{textAlign: 'center'}}>
-          {/*<a href="#" onClick={() => this.setTreeData(ta)}>main-path</a> |
+        <nav>
+          <div className='view-controls'>
+            {/*<a href="#" onClick={() => this.setTreeData(ta)}>main-path</a> |
           <a href='#' onClick={() => this.setTreeData(taVerb)}>verb-path</a> |
           <a href='#' onClick={() => this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")))}>generate</a> | */}
-          <span><a href='#' onClick={() => this.showModal()}> About</a> </span> |
-          <span><a href='#' onClick={() => this.showToc()}>{this.state.tocMode ? ' Show Tree ' : ' Show Table of Contents'}</a> </span> |
-          <span><a href='#' onClick={() => this.showBranches()}>{this.state.showingBranches ? ' Hide unselected node text ' : ' Show unselected node text'}</a> </span> |
-          <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Hide full tree ' : ' Show full tree'}</a> </span> |
-          <span><a target='_blank' href='https://github.com/IBM/app-mod-journey/tree/main'> Contribute</a> </span>
-        </h5>
+            <span><a href='#' onClick={() => this.showToc()}>{this.state.tocMode ? ' Show Tree ' : ' Show Table of Contents'}</a> </span>
+            <span className={actionControlCls}>{treeViewActionComponent}</span>
+
+          </div>
+        </nav>
+
         <Modal
-            isOpen={this.state.showDialog}
-            onRequestClose={this.state.closeModal}
-            contentLabel="Exemplar Modal"
+          isOpen={this.state.showDialog}
+          onRequestClose={this.state.closeModal}
+          contentLabel="Exemplar Modal"
         >
           <span><span ref={'refId'} style={{fontSize: '20px'}}>Click on the nodes to explore the tree and find your path to modernization!</span> <button style={{float:'right'}} onClick={this.state.closeModal}>Close</button></span>
-          <div style={{textAlign:'center'}}><img height='75%' width='75%' src={'./modExemplar.gif'}/></div>
-
+          <div style={{textAlign:'center'}}><img alt={''} height='75%' width='75%' src={'./modExemplar.gif'}/></div>
         </Modal>
 
         <div className="demo-container">
           <div className="column-right">
             {this.state.tocMode ?
-                (<div style={{ height: '100%', margin: '20px'}}>
-                  {toc}
-                </div>)
+              (<React.Fragment>
+                <div className={'tree-container'}>{toc}</div>
+              </React.Fragment>)
               :
-              <div ref={tc => (this.treeContainer = tc)} className="tree-container">
-              <Tree
-                hasInteractiveNodes
-                data={this.state.data}
-                renderCustomNodeElement={
-                  this.state.renderCustomNodeElement
-                    ? rd3tProps => this.state.renderCustomNodeElement(rd3tProps, this.state)
-                    : undefined
-                }
-                rootNodeClassName="demo-node"
-                branchNodeClassName="demo-node"
-                orientation={this.state.orientation}
-                dimensions={this.state.dimensions}
-                centeringTransitionDuration={this.state.centeringTransitionDuration}
-                translate={{ x: this.state.translateX, y: this.state.translateY }}
-                pathFunc={this.state.pathFunc}
-                collapsible={this.state.collapsible}
-                initialDepth={this.state.initialDepth}
-                zoomable={this.state.zoomable}
-                draggable={this.state.draggable}
-                zoom={this.state.zoom}
-                scaleExtent={this.state.scaleExtent}
-                nodeSize={this.state.nodeSize}
-                separation={this.state.separation}
-                enableLegacyTransitions={this.state.enableLegacyTransitions}
-                transitionDuration={this.state.transitionDuration}
-                depthFactor={this.state.depthFactor}
-                styles={this.state.styles}
-                shouldCollapseNeighborNodes={this.state.shouldCollapseNeighborNodes}
-                // onUpdate={(...args) => {console.log(args)}}
-                onNodeClick={(node, evt) => {
-                  console.log('onNodeClick', node, evt);
-                }}
-                onNodeMouseOver={(...args) => {
-                  console.log('onNodeMouseOver', args);
-                }}
-                onNodeMouseOut={(...args) => {
-                  console.log('onNodeMouseOut', args);
-                }}
-                onLinkClick={(...args) => {
-                  console.log('onLinkClick');
-                  console.log(args);
-                }}
-                onLinkMouseOver={(...args) => {
-                  console.log('onLinkMouseOver', args);
-                }}
-                onLinkMouseOut={(...args) => {
-                  console.log('onLinkMouseOut', args);
-                }}
-              />
-            </div>
+              <React.Fragment>
+
+                <div ref={tc => (this.treeContainer = tc)} className="tree-container">
+                  <Tree
+                    hasInteractiveNodes
+                    data={this.state.data}
+                    renderCustomNodeElement={
+                      this.state.renderCustomNodeElement
+                        ? rd3tProps => this.state.renderCustomNodeElement(rd3tProps, this.state)
+                        : undefined
+                    }
+                    rootNodeClassName="demo-node"
+                    branchNodeClassName="demo-node"
+                    orientation={this.state.orientation}
+                    dimensions={this.state.dimensions}
+                    centeringTransitionDuration={this.state.centeringTransitionDuration}
+                    translate={{ x: this.state.translateX, y: this.state.translateY }}
+                    pathFunc={this.state.pathFunc}
+                    collapsible={this.state.collapsible}
+                    initialDepth={this.state.initialDepth}
+                    zoomable={this.state.zoomable}
+                    draggable={this.state.draggable}
+                    zoom={this.state.zoom}
+                    scaleExtent={this.state.scaleExtent}
+                    nodeSize={this.state.nodeSize}
+                    separation={this.state.separation}
+                    enableLegacyTransitions={this.state.enableLegacyTransitions}
+                    transitionDuration={this.state.transitionDuration}
+                    depthFactor={this.state.depthFactor}
+                    styles={this.state.styles}
+                    shouldCollapseNeighborNodes={this.state.shouldCollapseNeighborNodes}
+                    // onUpdate={(...args) => {console.log(args)}}
+                    onNodeClick={(node, evt) => {
+                      console.log('onNodeClick', node, evt);
+                    }}
+                    onNodeMouseOver={(...args) => {
+                      console.log('onNodeMouseOver', args);
+                    }}
+                    onNodeMouseOut={(...args) => {
+                      console.log('onNodeMouseOut', args);
+                    }}
+                    onLinkClick={(...args) => {
+                      console.log('onLinkClick');
+                      console.log(args);
+                    }}
+                    onLinkMouseOver={(...args) => {
+                      console.log('onLinkMouseOver', args);
+                    }}
+                    onLinkMouseOut={(...args) => {
+                      console.log('onLinkMouseOut', args);
+                    }}
+                  />
+                </div></React.Fragment>
             }
           </div>
         </div>
