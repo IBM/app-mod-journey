@@ -144,6 +144,7 @@
       "name": "upload results manually in bulk",
       "color": "green",
       "docs" : "https://ibm.github.io/app-mod-journey/details/bulkUploadResults",
+      "videos": "https://www.youtube.com/embed/L0bktEJSuAU?autoplay=1&start=92&end=298",
       "childPointers": ["E1","E2","E3","E4","E5"]
     },
     {
@@ -226,7 +227,7 @@
     {
       "id": "H1",
       "groupId": "H1",
-      "name": "Estate wide modernization guidance",
+      "name": "estate wide modernization guidance",
       "primary": true,
       "color": "green",
       "videos": "https://youtu.be/6QwTlUGYcSE",
