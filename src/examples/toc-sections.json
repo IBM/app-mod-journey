@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "groupId": "A",
+      "name": "Collection"
+    },
+    {
+      "groupId": "B",
+      "name": "Source"
+    },
+    {
+      "groupId": "C",
+      "name": "Tools"
+    }
+  ]
+}
