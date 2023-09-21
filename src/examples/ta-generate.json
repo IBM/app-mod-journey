@@ -162,6 +162,7 @@
       "id": "E5",
       "groupId": "E",
       "name": "view results as CSV export",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/csvReports",
       "color": "green",
       "childPointers": ["F1","F2","F3"]
     },
