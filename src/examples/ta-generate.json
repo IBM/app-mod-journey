@@ -275,7 +275,7 @@
       "name": "create app deployment pipeline",
       "color": "green",
       "primary": true,
-      "childPointers": ["K1","K2","K3","K4"]
+      "childPointers": ["K1","K2","K3","K4","K5"]
     },
     {
       "id": "K1",
@@ -306,6 +306,14 @@
       "name": "integrate with monitoring",
       "color": "black",
       "primary": false
+    },
+    {
+      "id": "K5",
+      "groupId": "K",
+      "name": "re-architect to micro-services",
+      "color": "black",
+      "primary": false,
+      "docs": "https://ibm.biz/Mono2Micro"
     },
     {
       "id": "L1",
