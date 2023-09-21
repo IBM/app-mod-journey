@@ -251,8 +251,7 @@ class MixedNodeElement extends Component {
                             }}
                         >
                             <span style={{color: 'black', fontWeight: '400', fontSize: '20px'}}>
-                                <p>{nodeData.name}</p>
-                                <p>{nodeData.description ? nodeData.description : ''}</p>
+                                <p>{nodeData.description ? nodeData.description : nodeData.name}</p>
                             </span>
                         </div>
                     </foreignObject>

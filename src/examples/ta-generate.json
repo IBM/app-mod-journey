@@ -214,7 +214,7 @@
       "name": "resolve issues for a Moderate app",
       "color": "green",
       "primary": true,
-      "childPointers": ["H2","H3","H4","G2","H5","H6","H7"]
+      "childPointers": ["H2","H3","H4","H5","H6","H7"]
     },
     {
       "id": "G2",
@@ -231,6 +231,7 @@
       "primary": true,
       "color": "green",
       "videos": "https://youtu.be/6QwTlUGYcSE",
+      "description": "Hello. this is some text",
       "childPointers": ["J1"]
     },
     {
@@ -248,14 +249,16 @@
     {
       "id": "H4",
       "groupId": "H2",
-      "name": "resolve issues with a Quick Fix",
-      "color": "black"
+      "name": "resolve issues with JPA",
+      "color": "green"
     },
     {
       "id": "H5",
       "groupId": "H2",
-      "name": "resolve issues with JPA",
-      "color": "green"
+      "name": "resolve issues with automated code fixes",
+      "color": "black",
+      "primary": true,
+      "childPointers": ["G2"]
     },
     {
       "id": "H6",
