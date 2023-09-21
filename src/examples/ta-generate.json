@@ -226,9 +226,10 @@
     {
       "id": "H1",
       "groupId": "H1",
-      "name": "execute modernization approach (mass mod)",
+      "name": "Estate wide modernization guidance",
       "primary": true,
       "color": "green",
+      "videos": "https://youtu.be/6QwTlUGYcSE",
       "childPointers": ["J1"]
     },
     {
@@ -273,7 +274,7 @@
       "name": "create app deployment pipeline",
       "color": "green",
       "primary": true,
-      "childPointers": ["K1","K2","K3"]
+      "childPointers": ["K1","K2","K3","K4"]
     },
     {
       "id": "K1",
@@ -295,6 +296,13 @@
       "id": "K3",
       "groupId": "K",
       "name": "integrate with IBM Financial Services Cloud",
+      "color": "black",
+      "primary": false
+    },
+    {
+      "id": "K4",
+      "groupId": "K",
+      "name": "integrate with monitoring",
       "color": "black",
       "primary": false
     },
