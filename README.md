@@ -13,8 +13,9 @@ It will allow customers and sellers to see build a full path with their ideal op
  - Run `npm i` (needed first time only, or after package updates)
  - Run this command to build the code
 `npm run build`
- - The 'build' directory will be created 
- - You can run the code locally by hitting 'build/index.html' from your browser
+ - The output of the build process can find in docs/tree directory
+ - You can run the code locally by hitting 'docs/tree/index.html' from your browser
+ - No need to check in the files under docs/tree, all files under this directory will be regenerated during the auto build process
 
 ## Developing the code
  - You can setup a full npm + node server environment to dynamically test your updates
@@ -38,10 +39,8 @@ It will allow customers and sellers to see build a full path with their ideal op
 
 ## How to update the hosted site
  - Because the code runs statically  in the browser and does not need a server, we can host the whole interactive site in the git-pages
- - This is how you update the hosted site
-     - Build the code: `npm run build`
-     - Copy the contents of the 'build' directory into 'docs/tree'
-     - Look in git and some of the files in 'docs/tree' will be changed
-     - Commit these, push the branch and merge into main
-     - About 5 minutes after the merge to main you should see the update
+ - A build and deploy workflow will be triggered after you merge your code to the 'main' branch
+     - Click the 'Actions' button in the repo, you should see a workflow started with your change
+     - The workflow will run for about 2 minutes to build the contents and deploy the contents to git-pages
+     - About 5 minutes after the workflow completed successfully you should see the update from the git-pages site
 
