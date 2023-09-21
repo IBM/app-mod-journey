@@ -94,6 +94,7 @@
       "groupId": "C",
       "name": "using Non-default parameters",
       "color": "green",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/customProperties",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -177,6 +178,7 @@
       "id": "E5",
       "groupId": "E",
       "name": "view results as CSV export",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/csvReports",
       "color": "green",
       "childPointers": ["F1","F2","F3"]
     },
