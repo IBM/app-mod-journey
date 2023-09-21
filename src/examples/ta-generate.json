@@ -7,22 +7,31 @@
       "root": true,
       "color": "green",
       "primary": true,
-      "childPointers": ["B1","B2","B3","B4","B5","B6"]
+      "childPointers": ["B0","B1","B2","B3","B4","B5","B6"]
     },
     {
-      "id": "B1",
+      "id": "B0",
       "groupId": "B",
       "name": "from ACE",
       "primary": false,
       "color": "black",
-      "childPointers": ["C4"]
+      "childPointers": ["C0"]
     },
     {
-      "id": "B2",
+      "id": "B1",
       "groupId": "B",
       "name": "from Application Binaries",
       "color": "green",
       "childPointers": ["C2","C4"]
+    },
+    {
+      "id": "B2",
+      "groupId": "B",
+      "name": "from Liberty",
+      "primary": false,
+      "color": "black",
+      "docs": "    https://www.ibm.com/docs/en/cta?topic=started-collecting-websphere-liberty-open-liberty",
+      "childPointers": ["C1","C2","C3","C4","C5"]
     },
     {
       "id": "B3",
@@ -56,6 +65,14 @@
       "primary": false,
       "color": "black",
       "childPointers": ["C4"]
+    },
+    {
+      "id": "C0",
+      "groupId": "C",
+      "name": "using ACE TADataCollector",
+      "primary": false,
+      "docs" : "https://www.ibm.com/docs/en/app-connect/12.0?topic=administration-tadatacollector-command",
+      "color": "black"
     },
     {
       "id": "C1",
