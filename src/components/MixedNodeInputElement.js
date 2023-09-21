@@ -22,11 +22,11 @@ class MixedNodeElement extends Component {
         let failSafe = 0;
         let actionSentence = "collect data"
         try {
-            while(matchedNode == null && failSafe < 50) {
+            while(matchedNode === null && failSafe < 50) {
                 failSafe++;
                 matchedNode = this.findNodeInTree(currentNodeWithChildren, name);
                 currentNodeWithChildren = this.findNodeWithChildrenInTree(currentNodeWithChildren);
-                if(matchedNode != null) {
+                if(matchedNode !== null) {
                     actionSentence = actionSentence + " - " + matchedNode.name;
                 } else {
                     actionSentence = actionSentence + " - " + currentNodeWithChildren.name;
@@ -57,7 +57,7 @@ class MixedNodeElement extends Component {
             let treeBranch = treeNode.children
             //check the name
             for(let i=0;i<treeBranch.length;i++) {
-                if(treeBranch[i].name == name) {
+                if(treeBranch[i].name === name) {
                     let matchedNode = treeBranch[i];
                     return {matchedNode, depth}
                 }
@@ -79,7 +79,7 @@ class MixedNodeElement extends Component {
       let currentNodeWithChildren = data;
       let matchedNode = null;
       let initialDepth = 1; //If we ask for a node that is not there, make sure we can break the loop
-      while(matchedNode == null && initialDepth < 50) {
+      while(matchedNode === null && initialDepth < 50) {
           initialDepth++;
           matchedNode = this.findNodeInTree(currentNodeWithChildren, name);
           currentNodeWithChildren = this.findNodeWithChildrenInTree(currentNodeWithChildren);
@@ -107,7 +107,7 @@ class MixedNodeElement extends Component {
         let matchedNode = null;
         let depth = 50;
         let initialDepth = 1; //If we ask for a node that is not there, make sure we can break the loop
-        while(matchedNode == null && initialDepth < 50) {
+        while(matchedNode === null && initialDepth < 50) {
             initialDepth++;
             let matchingObject = this.findNodeInTree(currentNodeWithChildren, name, initialDepth);
             matchedNode = matchingObject.matchedNode;
@@ -143,7 +143,7 @@ class MixedNodeElement extends Component {
       let {nodeData = {}} = this.props;
       if(nodeData) {
           //If we already are running a timer for the description for this node then do nothing
-          if(nodeData.name == descriptionTimerInfo.nodeName) {
+          if(nodeData.name === descriptionTimerInfo.nodeName) {
               return;
           }
           let timerId = setTimeout(() =>{
