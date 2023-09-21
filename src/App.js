@@ -13,6 +13,7 @@ import './App.css';
 import orgChartJson from './examples/org-chart.json.bck';
 import ta from './examples/ta.json';
 import taGenerate from './examples/ta-generate.json';
+import {TableOfContents} from '@carbon/icons-react';
 
 import Modal from 'react-modal';
 
@@ -326,7 +327,7 @@ class App extends Component {
 
   getSectionNameFromGroupId(groupId) {
     for(let section of taGenerate.tocSections) {
-      if(section.groupId == groupId) {
+      if(section.groupId === groupId) {
         return section.name
       }
     }
@@ -341,18 +342,25 @@ class App extends Component {
     let sectionSet = new Set(taGenerate.tocSections);
     let groupSet = new Set();
     let generatedTOC = [];
-    generatedTOC.push(<h1>Table of Contents</h1>);
+    generatedTOC.push(<div className={'h1-heading'}>
+      <TableOfContents size={'20px'} />
+      <span style={{marginLeft:'5px'}}>Table of Contents</span></div>);
+    console.info(taGenerate);
     for(let entry of taGenerate.data) {
       //Check if this is teh first entry for the group,a nd add the heading for the group if it is
       if(!groupSet.has(entry.groupId)) {
         console.info('adding groupId: ', entry.groupId);
-        generatedTOC.push(<h2>{this.getSectionNameFromGroupId(entry.groupId)}</h2>);
+        generatedTOC.push(<div className={'h2-heading'}>{this.getSectionNameFromGroupId(entry.groupId)}</div>);
         groupSet.add(entry.groupId);
       }
 
       let text = (
-          <div key={entry.name} >
-            <span style={{color: entry.primary ? 'black' : 'grey', fontWeight: entry.primary ? '700' : '400'}} >{entry.name}</span>{entry.docs ? (<span> | <a target='_blank' rel='noopener noreferrer' href={entry.docs}> Docs</a></span>) : null}{entry.videos ? (<span> | <a target='_blank' without rel='noopener noreferrer' href={entry.videos}> | Videos</a></span>) : null}
+          <div className='sub-item' key={entry.name} >
+            <span className={entry.primary ? 'primary': 'secondary'}>
+              {entry.name}
+            </span>
+            {entry.docs ? (<span> | <a target='_blank' rel='noopener noreferrer' href={entry.docs}> Docs</a></span>) : null}
+            {entry.videos ? (<span> | <a target='_blank' without rel='noopener noreferrer' href={entry.videos}> Videos</a></span>) : null}
           </div>
       );
       generatedTOC.push(text);
@@ -543,7 +551,9 @@ class App extends Component {
           <div className="column-right">
             {this.state.tocMode ?
               (<React.Fragment>
-                <div className={'tree-container'}>{toc}</div>
+                <div className={'view-container'}>
+                  <div className={'toc-Wrapper'}>{toc}</div>
+                </div>
               </React.Fragment>)
               :
               <React.Fragment>

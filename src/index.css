@@ -12,15 +12,14 @@ body {
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-weight: 300;
   background: #fff;
+  overflow: hidden;
 }
 /*updated styles for header*/
 .column-right {
   margin: 10px 20px 20px;
-}
-.tree-container {
   background: #fff;
-  border: 1px solid #565656;
   border: 1px solid #eee;
+  height: 85vh;
 }
 .tree--action-controls,
 .tree--action-controls-hide{
@@ -49,8 +48,55 @@ body {
   margin-bottom: 0px;
   justify-content: space-between;
 }
+.view-container {
+  overflow: auto;
+  height: 100%;
+  margin-bottom: 20px;
 
-.theme1 .tree-container {
-  border: 1px solid #565656;
-  background: #f3f3f3
+}
+
+.h1-heading,
+.h2-heading
+{
+  font-family: 'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  font-size: 24px;
+  margin: 20px 0 8px;
+  cursor: text;
+  position: relative;
+  color: #2E3438;
+  padding: 0 0 4px;
+  border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
+}
+.h2-heading{
+  padding-left: 25px;
+}
+
+.toc-Wrapper{
+  margin: auto;
+  width: 50%;
+  padding-bottom: 20px;
+  line-height: 1.5;
+
+}
+.sub-item{
+  margin-left: 35px;
+}
+.primary {
+  color: black;
+  font-weight: 700;
+}
+.primary::before{
+  content: "•"; color: green;
+  display: inline-block; width: 1em;
+  margin-left: -1em
+}
+.secondary{
+  color: grey;
+  font-weight: 400;
+}
+.node-textContainer{
+  /*border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
+  border: 1px solid rgba(38,85,115,.15);*/
 }

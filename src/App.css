@@ -10,7 +10,7 @@
 }
 
 .demo-container {
-  position: fixed;
+  position: absolute;
   display: flex;
   flex-direction: row;
   height: 100%;
@@ -79,7 +79,7 @@
   background-color: #2d3748;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
-  
+
 .btn-controls:hover,
 .btn-controls:focus,
 .btn-controls:active {

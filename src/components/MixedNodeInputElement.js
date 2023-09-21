@@ -208,10 +208,10 @@ class MixedNodeElement extends Component {
                                 textAlign: 'center',
                                 //justifyContent: 'space-between',
                                 border: '1px solid white',
-                                paddingBottom: '1rem',
+                                paddingBottom: '1rem'
                             }}
                         >
-                            <div style={{backgroundColor: 'white'}}>
+                            <div className='node-textContainer' style={{backgroundColor: 'white'}}>
                                 <span onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter}
                                       onMouseLeave={this.nodeMouseLeave} style={{
                                     backgroundColor: 'white',
