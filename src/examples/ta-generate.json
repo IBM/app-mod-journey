@@ -330,6 +330,35 @@
       "color": "black",
       "primary": false
     }
-
+  ],
+  "tocSections" : [
+    {
+      "groupId": "A",
+      "name": "Collection"
+    },
+    {
+      "groupId": "B",
+      "name": "Source"
+    },
+    {
+      "groupId": "C",
+      "name": "Tools"
+    },
+    {
+      "groupId": "D",
+      "name": "Upload"
+    },
+    {
+      "groupId": "E",
+      "name": "Analysis"
+    },
+    {
+      "groupId": "F",
+      "name": "Simple Application Deployment"
+    },
+    {
+      "groupId": "G1",
+      "name": "Updating Moderate Applications"
+    }
   ]
 }
