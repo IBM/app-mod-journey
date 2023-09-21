@@ -12,17 +12,17 @@
     {
       "id": "B1",
       "groupId": "B",
-      "name": "from ACE",
-      "primary": false,
-      "color": "black",
-      "childPointers": ["C4"]
+      "name": "from Application Binaries",
+      "color": "green",
+      "childPointers": ["C2","C4"]
     },
     {
       "id": "B2",
       "groupId": "B",
-      "name": "from Application Binaries",
-      "color": "green",
-      "childPointers": ["C2","C4"]
+      "name": "from Liberty",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C0"]
     },
     {
       "id": "B3",
@@ -56,6 +56,22 @@
       "primary": false,
       "color": "black",
       "childPointers": ["C4"]
+    },
+    {
+      "id": "B7",
+      "groupId": "B",
+      "name": "from ACE",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C0"]
+    },
+    {
+      "id": "C0",
+      "groupId": "C",
+      "name": "using ACE TADataCollector",
+      "primary": false,
+      "docs" : "https://www.ibm.com/docs/en/app-connect/12.0?topic=administration-tadatacollector-command",
+      "color": "black"
     },
     {
       "id": "C1",

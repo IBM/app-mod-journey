@@ -196,7 +196,7 @@ class MixedNodeElement extends Component {
 
         return (
             <React.Fragment>
-                <circle r={20} onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave}></circle>
+                <circle fill={'white'} r={20} onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave}></circle>
                 {!appState.showingBranches && !nodeData.primary ? null :
                     <foreignObject {...foreignObjectProps} >
                         <div
