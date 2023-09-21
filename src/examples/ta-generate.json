@@ -31,7 +31,7 @@
       "primary": false,
       "color": "black",
       "docs": "    https://www.ibm.com/docs/en/cta?topic=started-collecting-websphere-liberty-open-liberty",
-      "childPointers": ["C1","C2","C3","C4","C5","C6"]
+      "childPointers": ["C1","C2","C3","C4","C5"]
     },
     {
       "id": "B3",
