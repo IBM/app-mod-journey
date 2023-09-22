@@ -127,7 +127,7 @@
       "name": "upload results manually",
       "color": "green",
       "docs" : "https://ibm.github.io/app-mod-journey/details/uploadResultsManually",
-      "childPointers": ["E1","E2","E3","E4","E5"]
+      "childPointers": ["E1","E2","E3","E4","E5","E6","E7","E8"]
     },
     {
       "id": "D2",
@@ -136,7 +136,7 @@
       "color": "green",
       "primary": true,
       "docs" : "https://ibm.github.io/app-mod-journey/details/uploadResults",
-      "childPointers": ["E1","E2","E3","E4","E5"]
+      "childPointers": ["E1","E2","E3","E4","E5","E6","E7","E8"]
     },
     {
       "id": "D3",
@@ -145,39 +145,67 @@
       "color": "green",
       "docs" : "https://ibm.github.io/app-mod-journey/details/bulkUploadResults",
       "videos": "https://www.youtube.com/embed/L0bktEJSuAU?autoplay=1&start=92&end=298",
-      "childPointers": ["E1","E2","E3","E4","E5"]
+      "childPointers": ["E1","E2","E3","E4","E5","E6","E7","E8"]
     },
     {
       "id": "E1",
       "groupId": "E",
-      "name": "view results by WAS ND Cluster",
+      "name": "understanding user-defined Groups",
       "color": "green",
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=425",
       "childPointers": ["F1","F2","F3"]
     },
     {
       "id": "E2",
       "groupId": "E",
-      "name": "view results by user-defined Groups",
+      "name": "understanding WAS ND Clusters",
       "color": "green",
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=380&end=424",
       "childPointers": ["F1","F2","F3"]
     },
     {
       "id": "E3",
       "groupId": "E",
-      "name": "view all results",
+      "name": "understanding migration targets",
       "color": "green",
-      "primary": true,
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=16&end=164",
       "childPointers": ["F1","F2","F3"]
     },
     {
       "id": "E4",
       "groupId": "E",
-      "name": "view results with filtering",
+      "name": "understanding the results",
       "color": "green",
+      "primary": true,
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1",
       "childPointers": ["F1","F2","F3"]
     },
     {
       "id": "E5",
+      "groupId": "E",
+      "name": "understanding Complexity",
+      "color": "green",
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=239&end=314",
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "E6",
+      "groupId": "E",
+      "name": "understanding Common Code",
+      "color": "green",
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=196&end=314",
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "E7",
+      "groupId": "E",
+      "name": "understanding filtering",
+      "color": "green",
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=316&end=345",
+      "childPointers": ["F1","F2","F3"]
+    },
+    {
+      "id": "E8",
       "groupId": "E",
       "name": "view results as CSV export",
       "docs" : "https://ibm.github.io/app-mod-journey/details/csvReports",
