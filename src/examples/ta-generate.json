@@ -150,7 +150,7 @@
     {
       "id": "E1",
       "groupId": "E",
-      "name": "understanding user-defined Groups",
+      "name": "understanding Groups",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=425",
       "childPointers": ["F1","F2","F3"]
@@ -285,9 +285,10 @@
     {
       "id": "G2",
       "groupId": "G2",
-      "name": "validate modernization approach (ROI)",
+      "name": "validate modernization effort",
       "color": "green",
       "primary": true,
+      "videos": "https://www.youtube.com/embed/ugqFlDtN2Ig?autoplay=1&start=354&end=932",
       "childPointers": ["H1"]
     },
     {
@@ -296,7 +297,7 @@
       "name": "estate wide modernization guidance",
       "primary": true,
       "color": "green",
-      "videos": "https://youtu.be/6QwTlUGYcSE",
+      "videos": "https://www.youtube.com/embed/6QwTlUGYcSE?autoplay=1",
       "description": "Hello. this is some text",
       "childPointers": ["J1"]
     },
@@ -306,6 +307,7 @@
       "name": "create app deployment pipeline",
       "color": "green",
       "primary": true,
+      "docs": "https://ibm-cloud-architecture.github.io/modernization-playbook/applications/liberty/liberty-deploy-openshift-pipelines",
       "childPointers": ["K1","K2","K3","K4","K5"]
     },
     {
@@ -336,6 +338,7 @@
       "groupId": "K1",
       "name": "integrate with monitoring",
       "color": "black",
+      "docs" : "https://ibm-cloud-architecture.github.io/modernization-playbook/day2-ops/README",
       "primary": false
     },
     {
