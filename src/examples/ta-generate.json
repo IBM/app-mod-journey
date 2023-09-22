@@ -245,24 +245,6 @@
       "childPointers": ["H2","H3","H4","H5","H6","H7"]
     },
     {
-      "id": "G2",
-      "groupId": "G2",
-      "name": "validate modernization approach (ROI)",
-      "color": "green",
-      "primary": true,
-      "childPointers": ["H1"]
-    },
-    {
-      "id": "H1",
-      "groupId": "H1",
-      "name": "estate wide modernization guidance",
-      "primary": true,
-      "color": "green",
-      "videos": "https://youtu.be/6QwTlUGYcSE",
-      "description": "Hello. this is some text",
-      "childPointers": ["J1"]
-    },
-    {
       "id": "H2",
       "groupId": "H2",
       "name": "resolve issues with multiple solutions",
@@ -301,6 +283,24 @@
       "color": "black"
     },
     {
+      "id": "G2",
+      "groupId": "G2",
+      "name": "validate modernization approach (ROI)",
+      "color": "green",
+      "primary": true,
+      "childPointers": ["H1"]
+    },
+    {
+      "id": "H1",
+      "groupId": "H1",
+      "name": "estate wide modernization guidance",
+      "primary": true,
+      "color": "green",
+      "videos": "https://youtu.be/6QwTlUGYcSE",
+      "description": "Hello. this is some text",
+      "childPointers": ["J1"]
+    },
+    {
       "id": "J1",
       "groupId": "J",
       "name": "create app deployment pipeline",
@@ -318,7 +318,7 @@
     },
     {
       "id": "K2",
-      "groupId": "K",
+      "groupId": "K1",
       "name": "integrate with Vault",
       "docs" : "https://ibm.github.io/app-mod-journey/details/J2-vault-integration",
       "color": "green",
@@ -326,21 +326,21 @@
     },
     {
       "id": "K3",
-      "groupId": "K",
+      "groupId": "K1",
       "name": "integrate with IBM Financial Services Cloud",
       "color": "black",
       "primary": false
     },
     {
       "id": "K4",
-      "groupId": "K",
+      "groupId": "K1",
       "name": "integrate with monitoring",
       "color": "black",
       "primary": false
     },
     {
       "id": "K5",
-      "groupId": "K",
+      "groupId": "K2",
       "name": "re-architect to micro-services",
       "color": "black",
       "primary": false,
@@ -398,7 +398,7 @@
     },
     {
       "groupId": "E",
-      "name": "Analysis"
+      "name": "Understanding Analysis"
     },
     {
       "groupId": "F",
@@ -406,7 +406,39 @@
     },
     {
       "groupId": "G1",
-      "name": "Updating Moderate Applications"
+      "name": "Source Code Changes"
+    },
+    {
+      "groupId": "G2",
+      "name": "Return on Investment"
+    },
+    {
+      "groupId": "H1",
+      "name": "Guidance"
+    },
+    {
+      "groupId": "H2",
+      "name": "Resolve Specific Issues"
+    },
+    {
+      "groupId": "J",
+      "name": "CI/CD Pipelines"
+    },
+    {
+      "groupId": "K",
+      "name": "Multiple-Application Deployments"
+    },
+    {
+      "groupId": "K1",
+      "name": "Integrations"
+    },
+    {
+      "groupId": "K2",
+      "name": "Microservices"
+    },
+    {
+      "groupId": "L",
+      "name": "Cluster Confguration"
     }
   ]
 }
