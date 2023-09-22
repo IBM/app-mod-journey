@@ -120,7 +120,7 @@ class App extends Component {
       depthFactor: 250,
       zoomable: true,
       draggable: true,
-      zoom: 0.6,
+      zoom: 0.55,
       scaleExtent: { min: 0.1, max: 5 },
       separation: { siblings: 1.25, nonSiblings: 1.75 },
       nodeSize: { x: 200, y: 150 },
@@ -594,7 +594,6 @@ class App extends Component {
               </React.Fragment>)
               :
               <React.Fragment>
-
                 <div ref={tc => (this.treeContainer = tc)} className="tree-container">
                   <Tree
                     hasInteractiveNodes
