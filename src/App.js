@@ -97,10 +97,14 @@ class App extends Component {
     this.setActionSentence = this.setActionSentence.bind(this);
     this.generateTreeData = this.generateTreeData.bind(this);
     this.changePrimaryInGroupAndReload = this.changePrimaryInGroupAndReload.bind(this);
+    this.pruneBranches = this.pruneBranches.bind(this);
+    this.restoreBranches = this.restoreBranches.bind(this);
+    this.showBranches = this.showBranches.bind(this);
 
     this.state = {
       tocMode: false, //Table of contents mode
       data: ta,
+      taGenerateBackup: {},
       updateTree: this.setTreeData,
       changePrimary: this.changePrimaryInGroupAndReload,
       updateActionSentence: this.setActionSentence,
@@ -181,7 +185,6 @@ class App extends Component {
   }
 
   setActionSentence(actionSentence) {
-    console.info('..... actionSentence .....', actionSentence);
     this.setState({
       actionSentence
     });
@@ -289,7 +292,6 @@ class App extends Component {
   }
 
   addChildNode = () => {
-    console.info('......addChildNode.....')
     const data = clone(this.state.data);
     const target = data[0].children ? data[0].children : data[0]._children;
     this.addedNodesCount++;
@@ -345,11 +347,9 @@ class App extends Component {
     generatedTOC.push(<div className={'h1-heading'}>
       <TableOfContents size={'20px'} />
       <span style={{marginLeft:'5px'}}>Table of Contents</span></div>);
-    console.info(taGenerate);
     for(let entry of taGenerate.data) {
       //Check if this is teh first entry for the group,a nd add the heading for the group if it is
       if(!groupSet.has(entry.groupId)) {
-        console.info('adding groupId: ', entry.groupId);
         generatedTOC.push(<div className={'h2-heading'}>{this.getSectionNameFromGroupId(entry.groupId)}</div>);
         groupSet.add(entry.groupId);
       }
@@ -369,8 +369,51 @@ class App extends Component {
     return generatedTOC;
   }
 
+  pruneBranches() {
+    //We make a set to hold the new valid pointers, there will be a lot less
+    let validSet = new Set();
+
+    //Now we walk over the array in reverse order, removing those that are not primary, and adding to the set those that are
+    const size = taGenerate.data.length;
+    for(let i=size-1;i>-1;i--) {
+      if(taGenerate.data[i].primary){
+        validSet.add(taGenerate.data[i].id);
+      } else {
+        //remove it
+        taGenerate.data.splice(i,1);
+      }
+    }
+
+    //Now we loop over the remaining data cleaning up the childPointers, by only including those that are in the validSet
+    for(let node of taGenerate.data) {
+      let validChildPointers = [];
+      for(let child of node.childPointers) {
+        if(validSet.has(child)) {
+          validChildPointers.push(child);
+        }
+        node.childPointers = validChildPointers;
+      }
+    }
+
+    //Now we process the data back into tree format so the tree can use it
+    let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
+    this.setTreeData(newData);
+  }
+
+  restoreBranches() {
+    taGenerate.data = JSON.parse(JSON.stringify(this.state.taGenerateBackup.data)); //deep clone it
+    let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
+    this.setTreeData(newData);
+  }
+
   showBranches() {
-    this.setState({showingBranches: !this.state.showingBranches});
+    if(this.state.showingBranches) {
+      //It is currently true so we now swap and hide them
+      let taGenerateBackup = JSON.parse(JSON.stringify(taGenerate)); //deep clone it
+      this.setState({showingBranches: !this.state.showingBranches, taGenerateBackup}, this.pruneBranches);
+    } else {
+      this.setState({showingBranches: !this.state.showingBranches}, this.restoreBranches);
+    }
   }
 
   showAll() {
@@ -383,7 +426,6 @@ class App extends Component {
   }
 
   buildActionSentence() {
-    console.info('building action sentence......');
     let text = "Approach: collect data";
     for(let i=1;i<this.state.initialDepth;i++) {
       text = text + " - " + this.state.actionSentence[i];
@@ -397,12 +439,12 @@ class App extends Component {
         return entry;
       }
     }
+    return null;
   }
 
   getEntryFromGeneratedDataByName(name) {
     for(let entry of taGenerate.data) {
       if(name === entry.name) {
-        //console.info("Match: ", entry);
         return entry;
       }
     }
@@ -418,12 +460,10 @@ class App extends Component {
   //Here we set a new primary flag in the data
   changePrimaryInGroupAndReload(name) {
     let node = this.getEntryFromGeneratedDataByName(name);
-    console.info('changePrimaryInGroupAndReload.... ', node);
     let groupId = node.groupId;
     let groupNodes = [];
     for(let entry of taGenerate.data) {
       if(entry.groupId === groupId) {
-        console.info('setting primary false for..... ', groupId, entry);
         if(entry.id === node.id) {
           entry.primary = true;
         } else {
@@ -440,7 +480,6 @@ class App extends Component {
 
   //We need a method that gets past an id, we pull that node, check if it has children, populate them if it does, then recursivly pass again
   populateAllTreeData(node) {
-    //console.info("****** Name | Primary", node.name, node.primary)
     if(this.hasChildPointers(node) && node.primary) {
       let children = [];
       for(let childPointer of node.childPointers) {
@@ -472,7 +511,6 @@ class App extends Component {
     let currentDepth = 0;
 
     while(currentDepth < depth) {
-      //console.info("currentNode -- nextNode ", currentNode, nextNode);
       currentDepth++;
       if(this.hasChildPointers(currentNode)) {
         let children = [];
@@ -480,7 +518,6 @@ class App extends Component {
           let child = this.getEntryFromGeneratedData(childPointer);
           children.push(child);
           if(this.hasChildPointers(child) && child.primary) {
-            //console.info("Primary child with childPointers: ", child);
             nextNode = child;
           }
         }
@@ -500,7 +537,7 @@ class App extends Component {
         {/*this.state.showingBranches ? <ViewFilled size={16}  /> : <ViewOffFilled size={16} />*/}
 
         <span className=''><a href='#' onClick={() => this.showBranches()}>{
-          !this.state.showingBranches ? 'Show selected node text' : 'Hide unselected node text'}</a>
+          !this.state.showingBranches ? 'Show usselected nodes' : 'Hide unselected nodes'}</a>
           {/*} <Toggle id="toggle-4" labelText="unselected node text" />*/}
         </span> <span className={'divider'}/>
         <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Collapse tree view' : ' Expand tree view'} </a> </span>
