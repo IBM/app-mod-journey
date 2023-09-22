@@ -500,10 +500,10 @@ class App extends Component {
         {/*this.state.showingBranches ? <ViewFilled size={16}  /> : <ViewOffFilled size={16} />*/}
 
         <span className=''><a href='#' onClick={() => this.showBranches()}>{
-          !this.state.showingBranches ? 'show selected node text' : 'hide unselected node text'}</a>
+          !this.state.showingBranches ? 'Show selected node text' : 'Hide unselected node text'}</a>
           {/*} <Toggle id="toggle-4" labelText="unselected node text" />*/}
         </span> <span className={'divider'}/>
-        <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' collapse tree view' : ' expand tree view'} </a> </span>
+        <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Collapse tree view' : ' Expand tree view'} </a> </span>
       </React.Fragment>
     );
   }
