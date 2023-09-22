@@ -226,6 +226,7 @@
       "name": "deploy a Simple app to Liberty",
       "color": "green",
       "primary": true,
+      "docs": "https://www.ibm.com/docs/en/cta?topic=ma-how-deploy-your-app-red-hat-openshift-container-platform",
       "childPointers": ["G1"]
     },
     {
@@ -316,6 +317,7 @@
       "name": "deploy multiple apps from Cluster or Group",
       "color": "green",
       "primary": true,
+      "docs": "https://www.ibm.com/docs/en/cta?topic=ma-how-deploy-your-app-red-hat-openshift-container-platform#how-to-deploy-a-cluster-or-group-of-applications",
       "childPointers": ["L1","L2","L3","L4"]
     },
     {
