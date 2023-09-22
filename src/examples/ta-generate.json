@@ -285,9 +285,10 @@
     {
       "id": "G2",
       "groupId": "G2",
-      "name": "validate modernization approach (ROI)",
+      "name": "validate modernization effort",
       "color": "green",
       "primary": true,
+      "videos": "https://www.youtube.com/embed/ugqFlDtN2Ig?autoplay=1&start=354&end=932",
       "childPointers": ["H1"]
     },
     {
@@ -296,7 +297,7 @@
       "name": "estate wide modernization guidance",
       "primary": true,
       "color": "green",
-      "videos": "https://youtu.be/6QwTlUGYcSE",
+      "videos": "https://www.youtube.com/embed/6QwTlUGYcSE?autoplay=1",
       "description": "Hello. this is some text",
       "childPointers": ["J1"]
     },
