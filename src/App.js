@@ -185,7 +185,6 @@ class App extends Component {
   }
 
   setActionSentence(actionSentence) {
-    console.info('..... actionSentence .....', actionSentence);
     this.setState({
       actionSentence
     });
@@ -293,7 +292,6 @@ class App extends Component {
   }
 
   addChildNode = () => {
-    console.info('......addChildNode.....')
     const data = clone(this.state.data);
     const target = data[0].children ? data[0].children : data[0]._children;
     this.addedNodesCount++;
@@ -352,7 +350,6 @@ class App extends Component {
     for(let entry of taGenerate.data) {
       //Check if this is teh first entry for the group,a nd add the heading for the group if it is
       if(!groupSet.has(entry.groupId)) {
-        console.info('adding groupId: ', entry.groupId);
         generatedTOC.push(<div className={'h2-heading'}>{this.getSectionNameFromGroupId(entry.groupId)}</div>);
         groupSet.add(entry.groupId);
       }
@@ -404,18 +401,12 @@ class App extends Component {
   }
 
   restoreBranches() {
-    console.info('restoreBranches >>> taGenerate >>>', taGenerate);
-    console.info('this.state.taGenerateBackup: ', this.state.taGenerateBackup);
     taGenerate.data = JSON.parse(JSON.stringify(this.state.taGenerateBackup.data)); //deep clone it
-    console.info('taGenerate AFTER: ', taGenerate);
     let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
-    console.info('newData -- restoreBrances :: ', newData);
     this.setTreeData(newData);
   }
 
   showBranches() {
-
-    console.info('this.state.showingBranches: ', this.state.showingBranches);
     if(this.state.showingBranches) {
       //It is currently true so we now swap and hide them
       let taGenerateBackup = JSON.parse(JSON.stringify(taGenerate)); //deep clone it
@@ -431,12 +422,10 @@ class App extends Component {
     this.state.initialDepth = newDepth;
     this.setState({showingAll: !this.state.showingAll});
     let newData = Object.assign({}, this.state.data); //We need this to be a new object to make the tree re-render
-    console.info('showALl: ', newData);
     this.setTreeData(newData);
   }
 
   buildActionSentence() {
-    console.info('building action sentence......');
     let text = "Approach: collect data";
     for(let i=1;i<this.state.initialDepth;i++) {
       text = text + " - " + this.state.actionSentence[i];
@@ -445,7 +434,6 @@ class App extends Component {
   }
 
   getEntryFromGeneratedData(entryId) {
-    console.info('getEntryFromGeneratedData -- taGenerate.data :: ', taGenerate.data);
     for(let entry of taGenerate.data) {
       if(entryId === entry.id) {
         return entry;
@@ -457,7 +445,6 @@ class App extends Component {
   getEntryFromGeneratedDataByName(name) {
     for(let entry of taGenerate.data) {
       if(name === entry.name) {
-        //console.info("Match: ", entry);
         return entry;
       }
     }
@@ -473,12 +460,10 @@ class App extends Component {
   //Here we set a new primary flag in the data
   changePrimaryInGroupAndReload(name) {
     let node = this.getEntryFromGeneratedDataByName(name);
-    console.info('changePrimaryInGroupAndReload.... ', node);
     let groupId = node.groupId;
     let groupNodes = [];
     for(let entry of taGenerate.data) {
       if(entry.groupId === groupId) {
-        console.info('setting primary false for..... ', groupId, entry);
         if(entry.id === node.id) {
           entry.primary = true;
         } else {
@@ -526,7 +511,6 @@ class App extends Component {
     let currentDepth = 0;
 
     while(currentDepth < depth) {
-      //console.info("currentNode -- nextNode ", currentNode, nextNode);
       currentDepth++;
       if(this.hasChildPointers(currentNode)) {
         let children = [];
@@ -534,7 +518,6 @@ class App extends Component {
           let child = this.getEntryFromGeneratedData(childPointer);
           children.push(child);
           if(this.hasChildPointers(child) && child.primary) {
-            //console.info("Primary child with childPointers: ", child);
             nextNode = child;
           }
         }
