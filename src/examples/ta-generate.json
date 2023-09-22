@@ -243,7 +243,7 @@
       "name": "resolve issues for a Moderate app",
       "color": "green",
       "primary": true,
-      "childPointers": ["H2","H3","H4","H5","H6","H7"]
+      "childPointers": ["H2","H3","H4","H5","H6","H7","H8"]
     },
     {
       "id": "H2",
@@ -274,11 +274,19 @@
     {
       "id": "H6",
       "groupId": "H2",
+      "name": "resolve JAX-RPC issues (without source code)",
+      "color": "black",
+      "videos": "https://www.youtube.com/embed/7ErfF3-fxls?autoplay=1&start=21",
+      "primary": true
+    },
+    {
+      "id": "H7",
+      "groupId": "H2",
       "name": "resolve issues with EEJB connections",
       "color": "black"
     },
     {
-      "id": "H7",
+      "id": "H8",
       "groupId": "H2",
       "name": "resolve issues with EEJB transaction propagation",
       "color": "black"
