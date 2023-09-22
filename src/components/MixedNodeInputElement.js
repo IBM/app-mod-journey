@@ -147,7 +147,9 @@ class MixedNodeElement extends Component {
               return;
           }
           let timerId = setTimeout(() =>{
-              this.setState({showDescription: true});
+              //NOTE: I HAVE TURNED OFF DESCRIOTIONS FOR NOW, SO THIS IS BEING HARDCODE TO FALSE
+              //TODO: TURN BACK ON AND MAKE THEM LOOK NICE!!
+              this.setState({showDescription: false});
               //Now this is where I pop up the dialog or something
           }, 800);
           descriptionTimerInfo = {timerId: timerId, nodeName: nodeData.name}
