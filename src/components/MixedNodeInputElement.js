@@ -197,7 +197,7 @@ class MixedNodeElement extends Component {
         return (
             <React.Fragment>
                 <circle fill={'white'} r={20} onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave}></circle>
-                {!appState.showingBranches && !nodeData.primary ? null :
+
                     <foreignObject {...foreignObjectProps} >
                         <div
                             style={{
@@ -231,7 +231,7 @@ class MixedNodeElement extends Component {
                             </div>
                         </div>
                     </foreignObject>
-                }
+
 
                 {/* WATCH OUT!! If you pop the tooltip so that is covers the mouse it will trigger the mouseLeave and you get a flickering loop*/}
                 {this.state.showDescription ?

@@ -101,6 +101,7 @@ class App extends Component {
     this.state = {
       tocMode: false, //Table of contents mode
       data: ta,
+      dataBackup: {},
       updateTree: this.setTreeData,
       changePrimary: this.changePrimaryInGroupAndReload,
       updateActionSentence: this.setActionSentence,
@@ -369,8 +370,48 @@ class App extends Component {
     return generatedTOC;
   }
 
+  pruneBranches() {
+    //We make a set to hold the new valid pointers, there will be a lot less
+    let validSet = new Set();
+
+    //Now we walk over the array in reverse order, removing those that are not primary, and adding to the set those that are
+    const size = taGenerate.data.length;
+    for(let i=size-1;i>-1;i--) {
+      if(taGenerate.data[i].primary){
+        validSet.add(taGenerate.data[i].id);
+      } else {
+        //remove it
+        taGenerate.data.splice(i,1);
+      }
+    }
+
+    //Now we loop over the remaining data cleaning up the childPointers, by only including those that are in the validSet
+    for(let node of taGenerate.data) {
+      let validChildPointers = [];
+      for(let child of node.childPointers) {
+        if(validSet.has(child)) {
+          validChildPointers.push(child);
+        }
+        node.childPointers = validChildPointers;
+      }
+    }
+
+    //Now we process the data back into tree format so the tree can use it
+    let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
+    this.setTreeData(newData);
+  }
+
   showBranches() {
+
+    console.info('this.state.showingBranches: ', this.state.showingBranches);
+    if(this.state.showingBranches) {
+      //It is currently true so we now swap and hide them
+      this.pruneBranches();
+    }
+
     this.setState({showingBranches: !this.state.showingBranches});
+    //Now we clone the existing tree, then prune the old tree
+
   }
 
   showAll() {
@@ -379,6 +420,7 @@ class App extends Component {
     this.state.initialDepth = newDepth;
     this.setState({showingAll: !this.state.showingAll});
     let newData = Object.assign({}, this.state.data); //We need this to be a new object to make the tree re-render
+    console.info('showALl: ', newData);
     this.setTreeData(newData);
   }
 
@@ -397,6 +439,7 @@ class App extends Component {
         return entry;
       }
     }
+    return null;
   }
 
   getEntryFromGeneratedDataByName(name) {
@@ -440,7 +483,6 @@ class App extends Component {
 
   //We need a method that gets past an id, we pull that node, check if it has children, populate them if it does, then recursivly pass again
   populateAllTreeData(node) {
-    //console.info("****** Name | Primary", node.name, node.primary)
     if(this.hasChildPointers(node) && node.primary) {
       let children = [];
       for(let childPointer of node.childPointers) {
