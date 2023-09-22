@@ -382,7 +382,7 @@
   "tocSections" : [
     {
       "groupId": "A",
-      "name": "Collection"
+      "name": "Action"
     },
     {
       "groupId": "B",
@@ -390,7 +390,7 @@
     },
     {
       "groupId": "C",
-      "name": "Tools"
+      "name": "Collection"
     },
     {
       "groupId": "D",
