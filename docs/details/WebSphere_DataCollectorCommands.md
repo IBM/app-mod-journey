@@ -56,3 +56,46 @@
 
 ./bin/transformationadvisor -o OUTSIDE_LOCATION
 
+### Weblogic 
+
+### WebLogic outside location
+
+./bin/transformationadvisor --web-logic-apps-location WebLogic_APPS_location
+
+./bin/transformationadvisor -g WebLogic_Apps_location
+
+### WebLogic config
+
+./bin/transformationadvisor --web-logic-config-file Path_of_the_config.xml_file
+
+./bin/transformationadvisor -l Path_of_the_config.xml_file
+
+### JBoss
+
+### JBoss outside location
+
+./bin/transformationadvisor --jboss-apps-location JBoss_Apps_location
+
+./bin/transformationadvisor -b JBoss_APPS_location
+
+### JBoss config
+
+./bin/transformationadvisor --jboss-config-dir Directory_of_JBoss_Configuration 
+
+./bin/transformationadvisor -j Directory_of_JBoss_Configuration
+
+### Tomcat
+
+### Tomcat outside location
+
+./bin/transformationadvisor --tomcat-apps-location Tomcat_Apps_location
+
+./bin/transformationadvisor -c Tomcat_Apps_location
+
+###Tomcat config
+
+./bin/transformationadvisor --tomcat-home-dir Path_of_the_Tomcat_Home_directory
+
+./bin/transformationadvisor -t Path_of_the_Tomcat_Home_directory
+
+
