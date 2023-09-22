@@ -97,11 +97,14 @@ class App extends Component {
     this.setActionSentence = this.setActionSentence.bind(this);
     this.generateTreeData = this.generateTreeData.bind(this);
     this.changePrimaryInGroupAndReload = this.changePrimaryInGroupAndReload.bind(this);
+    this.pruneBranches = this.pruneBranches.bind(this);
+    this.restoreBranches = this.restoreBranches.bind(this);
+    this.showBranches = this.showBranches.bind(this);
 
     this.state = {
       tocMode: false, //Table of contents mode
       data: ta,
-      dataBackup: {},
+      taGenerateBackup: {},
       updateTree: this.setTreeData,
       changePrimary: this.changePrimaryInGroupAndReload,
       updateActionSentence: this.setActionSentence,
@@ -346,7 +349,6 @@ class App extends Component {
     generatedTOC.push(<div className={'h1-heading'}>
       <TableOfContents size={'20px'} />
       <span style={{marginLeft:'5px'}}>Table of Contents</span></div>);
-    console.info(taGenerate);
     for(let entry of taGenerate.data) {
       //Check if this is teh first entry for the group,a nd add the heading for the group if it is
       if(!groupSet.has(entry.groupId)) {
@@ -401,17 +403,26 @@ class App extends Component {
     this.setTreeData(newData);
   }
 
+  restoreBranches() {
+    console.info('restoreBranches >>> taGenerate >>>', taGenerate);
+    console.info('this.state.taGenerateBackup: ', this.state.taGenerateBackup);
+    taGenerate.data = JSON.parse(JSON.stringify(this.state.taGenerateBackup.data)); //deep clone it
+    console.info('taGenerate AFTER: ', taGenerate);
+    let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
+    console.info('newData -- restoreBrances :: ', newData);
+    this.setTreeData(newData);
+  }
+
   showBranches() {
 
     console.info('this.state.showingBranches: ', this.state.showingBranches);
     if(this.state.showingBranches) {
       //It is currently true so we now swap and hide them
-      this.pruneBranches();
+      let taGenerateBackup = JSON.parse(JSON.stringify(taGenerate)); //deep clone it
+      this.setState({showingBranches: !this.state.showingBranches, taGenerateBackup}, this.pruneBranches);
+    } else {
+      this.setState({showingBranches: !this.state.showingBranches}, this.restoreBranches);
     }
-
-    this.setState({showingBranches: !this.state.showingBranches});
-    //Now we clone the existing tree, then prune the old tree
-
   }
 
   showAll() {
@@ -434,6 +445,7 @@ class App extends Component {
   }
 
   getEntryFromGeneratedData(entryId) {
+    console.info('getEntryFromGeneratedData -- taGenerate.data :: ', taGenerate.data);
     for(let entry of taGenerate.data) {
       if(entryId === entry.id) {
         return entry;
