@@ -71,7 +71,7 @@
       "groupId": "C",
       "name": "using ACE TADataCollector",
       "primary": false,
-      "docs" : "https://www.ibm.com/docs/en/app-connect/12.0?topic=administration-tadatacollector-command",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/aceTADataCollector",
       "color": "black"
     },
     {
