@@ -272,52 +272,36 @@
       "color": "green",
       "primary": true,
       "docs": "https://ibm.github.io/app-mod-journey/details/resolveIssuesSample",
-      "childPointers": ["H2","H3","H4","H5","H6","H7","H8"]
+      "childPointers": ["H2","H3","H4","H5"]
     },
     {
       "id": "H2",
       "groupId": "H2",
-      "name": "resolve issues with multiple solutions",
+      "name": "resolve issues with EEJB",
       "color": "black"
     },
     {
       "id": "H3",
       "groupId": "H2",
-      "name": "resolve issues with concise solutions",
-      "color": "green"
+      "name": "resolve issues with multiple solutions",
+      "docs": "https://ibm.github.io/app-mod-journey/details/resolveIssuesSample#resolve-issues-with-multiple-solutions",
+      "color": "black"
     },
     {
       "id": "H4",
       "groupId": "H2",
-      "name": "resolve issues with JPA",
-      "color": "green"
-    },
-    {
-      "id": "H5",
-      "groupId": "H2",
       "name": "resolve issues with automated code fixes",
+      "docs": "https://ibm.github.io/app-mod-journey/details/resolveIssuesSample#resolve-issues-with-automated-code-fixes",
       "color": "black",
       "primary": true,
       "childPointers": ["G2"]
     },
     {
-      "id": "H6",
+      "id": "H5",
       "groupId": "H2",
       "name": "resolve JAX-RPC issues (without source code)",
       "color": "black",
       "videos": "https://www.youtube.com/embed/7ErfF3-fxls?autoplay=1&start=21"
-    },
-    {
-      "id": "H7",
-      "groupId": "H2",
-      "name": "resolve issues with EEJB connections",
-      "color": "black"
-    },
-    {
-      "id": "H8",
-      "groupId": "H2",
-      "name": "resolve issues with EEJB transaction propagation",
-      "color": "black"
     },
     {
       "id": "G2",
