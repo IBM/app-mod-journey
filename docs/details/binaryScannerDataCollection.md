@@ -1,6 +1,6 @@
 # Using the Binary Scanner
 
- - What we refer to as the binary scanner (because it scans the binary code) is shorthand for its official title: The WebSpHere Application Migration Toolkit. 
+ - What we refer to as the binary scanner (because it scans the binary code) is shorthand for its official title: The WebSphere Application Migration Toolkit. 
  - The main reason you would run this (instead of running the full Data Collector) is that you can download and use it now without needing to install Transformation Advsior
    - To get the best out of the results we **strongly recommend** that you still install Transformation Advisor
  - If you want to see some results now, and don't currently have the resources/permissions/time to download and install Transformation Advisor, then this is a good option
