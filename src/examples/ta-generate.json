@@ -125,31 +125,28 @@
     {
       "id": "C7",
       "groupId": "C",
-      "name": "using TA Data Collector(WebLogic)",
+      "name": "using TA Data Collector (WebLogic)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#weblogic",
-      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
       "id": "C8",
       "groupId": "C",
-      "name": "using TA Data Collector(JBoss)",
+      "name": "using TA Data Collector (JBoss)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#jboss",
-      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
       "id": "C9",
       "groupId": "C",
-      "name": "using TA Data Collector(Tomcat)",
+      "name": "using TA Data Collector (Tomcat)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",
-      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -238,7 +235,7 @@
     {
       "id": "E8",
       "groupId": "E",
-      "name": "view results as CSV export",
+      "name": "understanding exported reports",
       "docs" : "https://ibm.github.io/app-mod-journey/details/csvReports",
       "color": "green",
       "childPointers": ["F1","F2","F3"]
@@ -264,7 +261,7 @@
       "id": "F3",
       "groupId": "F",
       "name": "deploy a Simple app to Kubernetes",
-      "docs": "https://www.ibm.com/docs/en/cta?topic=ma-how-deploy-your-app-red-hat-openshift-container-platform",
+      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetes",
       "color": "black",
       "childPointers": ["G1"]
     },
@@ -274,52 +271,37 @@
       "name": "resolve issues for a Moderate app",
       "color": "green",
       "primary": true,
-      "childPointers": ["H2","H3","H4","H5","H6","H7","H8"]
+      "docs": "https://ibm.github.io/app-mod-journey/details/resolveIssuesSample",
+      "childPointers": ["H2","H3","H4","H5"]
     },
     {
       "id": "H2",
       "groupId": "H2",
-      "name": "resolve issues with multiple solutions",
+      "name": "resolve issues with EEJB",
       "color": "black"
     },
     {
       "id": "H3",
       "groupId": "H2",
-      "name": "resolve issues with concise solutions",
-      "color": "green"
+      "name": "resolve issues with multiple solutions",
+      "docs": "https://ibm.github.io/app-mod-journey/details/resolveIssuesSample#resolve-issues-with-multiple-solutions",
+      "color": "black"
     },
     {
       "id": "H4",
       "groupId": "H2",
-      "name": "resolve issues with JPA",
-      "color": "green"
-    },
-    {
-      "id": "H5",
-      "groupId": "H2",
       "name": "resolve issues with automated code fixes",
+      "docs": "https://ibm.github.io/app-mod-journey/details/resolveIssuesSample#resolve-issues-with-automated-code-fixes",
       "color": "black",
       "primary": true,
       "childPointers": ["G2"]
     },
     {
-      "id": "H6",
+      "id": "H5",
       "groupId": "H2",
       "name": "resolve JAX-RPC issues (without source code)",
       "color": "black",
       "videos": "https://www.youtube.com/embed/7ErfF3-fxls?autoplay=1&start=21"
-    },
-    {
-      "id": "H7",
-      "groupId": "H2",
-      "name": "resolve issues with EEJB connections",
-      "color": "black"
-    },
-    {
-      "id": "H8",
-      "groupId": "H2",
-      "name": "resolve issues with EEJB transaction propagation",
-      "color": "black"
     },
     {
       "id": "G2",
@@ -393,7 +375,7 @@
       "id": "L1",
       "groupId": "L",
       "name": "configure app database session persistence",
-      "docs" : "https://openliberty.io/docs/latest/create-session-table.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-database-session-persistence",
       "color": "green",
       "primary": false
     },
@@ -401,7 +383,7 @@
       "id": "L2",
       "groupId": "L",
       "name": "configure app in-memory session persistence",
-      "docs" : "https://openliberty.io/docs/latest/distributed-session-caching.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-in-memory-session-persistence ",
       "color": "green",
       "primary": false
     },
@@ -409,7 +391,7 @@
       "id": "L3",
       "groupId": "L",
       "name": "configure app database transaction logging",
-      "docs" : "https://openliberty.io/docs/latest/transaction-service.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-database-transaction-logging",
       "color": "green",
       "primary": false
     },
@@ -417,7 +399,7 @@
       "id": "L4",
       "groupId": "L",
       "name": "configure app in-memory transaction logging",
-      "docs" : "https://openliberty.io/docs/latest/transaction-service.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-in-memory-transaction-logging ",
       "color": "black",
       "primary": false
     }
