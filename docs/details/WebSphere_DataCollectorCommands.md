@@ -4,6 +4,7 @@
  - You can download the DC from the Transformation Advisor UI
  - It generates analysis for going to all three migration targets: WebSphere Liberty, Open Liberty, tWAS Base in Containers
  - It will generate a zip file for each WebSphere profile (or runtime equivalent) found and also one zip file for each shared library found
+   - When scanning WebLogic, JBoss or Tomcat shared libraries will not be detected
  - These will be automatically uploaded to Transformation Advisor if an upload path is found
  - If not then you will need to upload them via the [UI](https://ibm.github.io/app-mod-journey/details/uploadResultsManually) or in [bulk](https://ibm.github.io/app-mod-journey/details/bulkUploadResults)
 
