@@ -387,6 +387,9 @@ class App extends Component {
     //Now we loop over the remaining data cleaning up the childPointers, by only including those that are in the validSet
     for(let node of taGenerate.data) {
       let validChildPointers = [];
+      if(node.childPointers === undefined || node.childPointers === null) {
+        node.childPointers = [];
+      }
       for(let child of node.childPointers) {
         if(validSet.has(child)) {
           validChildPointers.push(child);
