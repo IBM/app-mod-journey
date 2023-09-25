@@ -309,6 +309,7 @@
       "name": "validate modernization effort",
       "color": "green",
       "primary": true,
+      "docs": "https://www.ibm.com/blog/application-modernization-at-discover-the-need-to-modernize",
       "videos": "https://www.youtube.com/embed/ugqFlDtN2Ig?autoplay=1&start=354&end=932",
       "childPointers": ["H1"]
     },
