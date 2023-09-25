@@ -375,7 +375,7 @@
       "id": "L1",
       "groupId": "L",
       "name": "configure app database session persistence",
-      "docs" : "https://openliberty.io/docs/latest/create-session-table.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-database-session-persistence",
       "color": "green",
       "primary": false
     },
@@ -383,7 +383,7 @@
       "id": "L2",
       "groupId": "L",
       "name": "configure app in-memory session persistence",
-      "docs" : "https://openliberty.io/docs/latest/distributed-session-caching.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-in-memory-session-persistence ",
       "color": "green",
       "primary": false
     },
@@ -391,7 +391,7 @@
       "id": "L3",
       "groupId": "L",
       "name": "configure app database transaction logging",
-      "docs" : "https://openliberty.io/docs/latest/transaction-service.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-database-transaction-logging",
       "color": "green",
       "primary": false
     },
@@ -399,7 +399,7 @@
       "id": "L4",
       "groupId": "L",
       "name": "configure app in-memory transaction logging",
-      "docs" : "https://openliberty.io/docs/latest/transaction-service.html",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-in-memory-transaction-logging ",
       "color": "black",
       "primary": false
     }
