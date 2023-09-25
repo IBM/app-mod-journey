@@ -125,31 +125,28 @@
     {
       "id": "C7",
       "groupId": "C",
-      "name": "using TA Data Collector(WebLogic)",
+      "name": "using TA Data Collector (WebLogic)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#weblogic",
-      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
       "id": "C8",
       "groupId": "C",
-      "name": "using TA Data Collector(JBoss)",
+      "name": "using TA Data Collector (JBoss)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#jboss",
-      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
       "id": "C9",
       "groupId": "C",
-      "name": "using TA Data Collector(Tomcat)",
+      "name": "using TA Data Collector (Tomcat)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",
-      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
