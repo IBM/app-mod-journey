@@ -9,12 +9,12 @@
 
 ## Download and install the Binary Scanner 
 
-https://www.ibm.com/support/pages/node/6250913
+[https://www.ibm.com/support/pages/node/6250913](https://www.ibm.com/support/pages/node/6250913)
 
 ## Migration Toolkit for Application Binaries overview
 
-https://www.ibm.com/docs/en/wamt?topic=migration-toolkit-application-binaries
+[https://www.ibm.com/docs/en/wamt?topic=migration-toolkit-application-binaries](https://www.ibm.com/docs/en/wamt?topic=migration-toolkit-application-binaries)
 
 ## Instructions for running the Binary Scanner to generate a Data Collection for Transformation Advisor
 
-https://www.ibm.com/docs/en/wamt?topic=binaries-transformation-advisor-data-collection
+[https://www.ibm.com/docs/en/wamt?topic=binaries-transformation-advisor-data-collection](https://www.ibm.com/docs/en/wamt?topic=binaries-transformation-advisor-data-collection)
