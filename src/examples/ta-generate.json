@@ -48,7 +48,7 @@
       "name": "from WebLogic",
       "primary": false,
       "color": "black",
-      "childPointers": ["C4"]
+      "childPointers": ["C7"]
     },
     {
       "id": "B5",
@@ -56,7 +56,7 @@
       "name": "from JBoss",
       "primary": false,
       "color": "black",
-      "childPointers": ["C4"]
+      "childPointers": ["C8"]
     },
     {
       "id": "B6",
@@ -64,14 +64,14 @@
       "name": "from Tomcat",
       "primary": false,
       "color": "black",
-      "childPointers": ["C4"]
+      "childPointers": ["C9"]
     },
     {
       "id": "C0",
       "groupId": "C",
       "name": "using ACE TADataCollector",
       "primary": false,
-      "docs" : "https://www.ibm.com/docs/en/app-connect/12.0?topic=administration-tadatacollector-command",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/aceTADataCollector",
       "color": "black"
     },
     {
@@ -93,7 +93,7 @@
     {
       "id": "C3",
       "groupId": "C",
-      "name": "using Non-default parameters",
+      "name": "using custom parameters",
       "color": "green",
       "docs" : "https://ibm.github.io/app-mod-journey/details/customProperties",
       "childPointers": ["D1","D2","D3"]
@@ -105,6 +105,7 @@
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands",
+      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -119,6 +120,36 @@
       "groupId": "C",
       "name": "using Backup server configuration",
       "docs": "https://www.ibm.com/docs/en/cta?topic=collector-running-dc-copy-was-config",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C7",
+      "groupId": "C",
+      "name": "using TA Data Collector(WebLogic)",
+      "primary": true,
+      "color": "green",
+      "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#weblogic",
+      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C8",
+      "groupId": "C",
+      "name": "using TA Data Collector(JBoss)",
+      "primary": true,
+      "color": "green",
+      "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#jboss",
+      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
+      "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C9",
+      "groupId": "C",
+      "name": "using TA Data Collector(Tomcat)",
+      "primary": true,
+      "color": "green",
+      "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",
+      "videos": "https://www.youtube.com/embed/pAX-IMGr09o?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
