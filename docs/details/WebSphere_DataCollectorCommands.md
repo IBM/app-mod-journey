@@ -1,3 +1,14 @@
+# Using the Transformation Advisor Data Collector
+
+ - The Transformation Advisor Data Collector (or DC for short) is used to collect information about all the Java application in your estate
+ - You can download the DC from the Transformation Advisor UI
+ - It generates analysis for going to all three migration targets: WebSphere Liberty, Open Liberty, tWAS Base in Containers
+ - It will generate a zip file for each WebSphere profile (or runtime equivalent) found and also one zip file for each shared library found
+ - These will be automatically uploaded to Transformation Advisor if an upload path is found
+ - If not then you will need to upload them via the [UI](https://ibm.github.io/app-mod-journey/details/uploadResultsManually) or in [bulk](https://ibm.github.io/app-mod-journey/details/bulkUploadResults)
+
+## WebSphere Application Server
+
 ### Scan a WebSphere Application Server Profile
 
 
@@ -56,7 +67,7 @@
 
 ./bin/transformationadvisor -o OUTSIDE_LOCATION
 
-### Weblogic 
+## Weblogic 
 
 ### WebLogic outside location
 
@@ -70,7 +81,7 @@
 
 ./bin/transformationadvisor -l Path_of_the_config.xml_file
 
-### JBoss
+## JBoss
 
 ### JBoss outside location
 
@@ -84,7 +95,7 @@
 
 ./bin/transformationadvisor -j Directory_of_JBoss_Configuration
 
-### Tomcat
+## Tomcat
 
 ### Tomcat outside location
 
