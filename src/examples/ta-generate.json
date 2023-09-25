@@ -113,6 +113,7 @@
       "groupId": "C",
       "name": "using Custom Rules",
       "docs": "https://ibm.github.io/app-mod-journey/details/userDefinedRules",
+      "videos": "https://www.youtube.com/embed/AAAAAAA?autoplay=1&start=0&end=260",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -292,6 +293,7 @@
       "groupId": "H2",
       "name": "resolve issues with automated code fixes",
       "docs": "https://ibm.github.io/app-mod-journey/details/resolveIssuesSample#resolve-issues-with-automated-code-fixes",
+      "videos": "https://www.youtube.com/embed/AAAAAAA?autoplay=1&start=260",
       "color": "black",
       "primary": true,
       "childPointers": ["G2"]
