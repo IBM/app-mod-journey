@@ -1,6 +1,6 @@
 # Using the Transformation Advisor Data Collector
 
- - The Transformation Advisor Data Collector (or DC for short) is used to collect information about all the Java application in your estate
+ - The Transformation Advisor Data Collector (or DC for short) is used to collect information about all the Java applications in your estate
  - You can download the DC from the Transformation Advisor UI
  - It generates analysis for going to all three migration targets: WebSphere Liberty, Open Liberty, tWAS Base in Containers
  - It will generate a zip file for each WebSphere profile (or runtime equivalent) found and also one zip file for each shared library found
@@ -104,7 +104,7 @@
 
 ./bin/transformationadvisor -c Tomcat_Apps_location
 
-###Tomcat config
+### Tomcat config
 
 ./bin/transformationadvisor --tomcat-home-dir Path_of_the_Tomcat_Home_directory
 
