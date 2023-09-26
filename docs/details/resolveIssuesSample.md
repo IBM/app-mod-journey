@@ -1,6 +1,6 @@
 # Resolve issues for a Moderate application
 
- - There are numerous issues that can need to be address for a Moderate application
+ - There are numerous issues that could be needed to address a Moderate application  
  - For each issue detailed help is provided in the Analysis reports
  - These reports are available for download at the bottom of the application details page
  
@@ -20,7 +20,7 @@
 ## Resolve issues with multiple solutions
  - Some issues that need to be resolved when modernizing have multiple possible solutions
  - These are usually presented from the least invasive to the most invasive
- - In all case we try to provide options that involve as little changes as possible - for example reusing an existing third party jar
+ - In all cases we try to provide options that involve as little changes as possible - for example reusing an existing third party jar
  - We recommend that you review all the solutions and consider your entire application estate before modernizing - you really want to be able to reuse the same solution across all your applications
 
 
