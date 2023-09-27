@@ -19,6 +19,20 @@ import Modal from 'react-modal';
 
 console.log('Demo React version: ', React.version);
 
+const customModalStyles = {
+  overlay: {
+    backgroundColor: '#000'
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  },
+};
+
 const customNodeFnMapping = {
   svg: {
     description: 'Default - Pure SVG node & label (IE11 compatible)',
@@ -581,10 +595,15 @@ class App extends Component {
         <Modal
           isOpen={this.state.showDialog}
           onRequestClose={this.state.closeModal}
-          contentLabel="Exemplar Modal"
+          contentLabel="Playbook Modal"
+          style={customModalStyles}
         >
-          <span><span ref={'refId'} style={{fontSize: '20px'}}>Click on the nodes to explore the tree and find your path to modernization!</span> <button style={{float:'right'}} onClick={this.state.closeModal}>Close</button></span>
-          {/*<div style={{textAlign:'center'}}><img alt={''} height='75%' width='75%' src={'./modExemplar.gif'}/></div>*/}
+            <iframe width="1120" height="630"
+                  src="https://www.youtube.com/embed/iyLrL-S0UjM?autoplay=1&si=yv6AYUUofOiDBu9j&amp;controls=0"
+                  title="YouTube video player" frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen></iframe>
+            <div><button style={{float:'right'}} onClick={this.state.closeModal}>Close</button></div>
         </Modal>
 
         <div className="demo-container">
