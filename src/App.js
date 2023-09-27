@@ -584,7 +584,7 @@ class App extends Component {
           contentLabel="Exemplar Modal"
         >
           <span><span ref={'refId'} style={{fontSize: '20px'}}>Click on the nodes to explore the tree and find your path to modernization!</span> <button style={{float:'right'}} onClick={this.state.closeModal}>Close</button></span>
-          <div style={{textAlign:'center'}}><img alt={''} height='75%' width='75%' src={'./modExemplar.gif'}/></div>
+          {/*<div style={{textAlign:'center'}}><img alt={''} height='75%' width='75%' src={'./modExemplar.gif'}/></div>*/}
         </Modal>
 
         <div className="demo-container">
