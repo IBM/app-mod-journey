@@ -80,6 +80,7 @@
       "name": "using WSADMIN Command",
       "color": "green",
       "docs" : "https://ibm.github.io/app-mod-journey/details/wsadminDataCollector",
+      "videos": "https://www.youtube.com/embed/XV2QmYcR_6s?autoplay=1",
       "childPointers": ["D1","D2","D3"]
     },
     {
@@ -129,7 +130,7 @@
       "id": "C7",
       "groupId": "C",
       "name": "using TA Data Collector (WebLogic)",
-      "primary": true,
+      "primary": false,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#weblogic",
       "childPointers": ["D1","D2","D3"]
@@ -138,7 +139,7 @@
       "id": "C8",
       "groupId": "C",
       "name": "using TA Data Collector (JBoss)",
-      "primary": true,
+      "primary": false,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#jboss",
       "childPointers": ["D1","D2","D3"]
@@ -147,7 +148,7 @@
       "id": "C9",
       "groupId": "C",
       "name": "using TA Data Collector (Tomcat)",
-      "primary": true,
+      "primary": false,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",
       "childPointers": ["D1","D2","D3"]
