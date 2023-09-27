@@ -540,7 +540,7 @@ class App extends Component {
         {/*this.state.showingBranches ? <ViewFilled size={16}  /> : <ViewOffFilled size={16} />*/}
 
         <span className=''><a href='#' onClick={() => this.showBranches()}>{
-          !this.state.showingBranches ? 'Show usselected nodes' : 'Hide unselected nodes'}</a>
+          !this.state.showingBranches ? 'Show unselected nodes' : 'Hide unselected nodes'}</a>
           {/*} <Toggle id="toggle-4" labelText="unselected node text" />*/}
         </span> <span className={'divider'}/>
         <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Collapse tree view' : ' Expand tree view'} </a> </span>
