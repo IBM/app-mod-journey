@@ -11,7 +11,6 @@ import './App.css';
 
 // Data examples
 import orgChartJson from './examples/org-chart.json.bck';
-import ta from './examples/ta.json';
 import taGenerate from './examples/ta-generate.json';
 import {TableOfContents} from '@carbon/icons-react';
 
@@ -117,7 +116,7 @@ class App extends Component {
 
     this.state = {
       tocMode: false, //Table of contents mode
-      data: ta,
+      data: { name: 'initial'},
       taGenerateBackup: {},
       updateTree: this.setTreeData,
       changePrimary: this.changePrimaryInGroupAndReload,

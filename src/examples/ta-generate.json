@@ -3,7 +3,7 @@
     {
       "id": "A1",
       "groupId": "A",
-      "name": "collect data ",
+      "name": "collect data",
       "root": true,
       "color": "green",
       "primary": true,
@@ -30,7 +30,7 @@
       "name": "from Liberty",
       "primary": false,
       "color": "black",
-      "docs": "    https://www.ibm.com/docs/en/cta?topic=started-collecting-websphere-liberty-open-liberty",
+      "docs": "https://www.ibm.com/docs/en/cta?topic=started-collecting-websphere-liberty-open-liberty",
       "childPointers": ["C1","C2","C3","C4","C5"]
     },
     {
@@ -182,7 +182,7 @@
     {
       "id": "E1",
       "groupId": "E",
-      "name": "understanding Groups",
+      "name": "understand Groups",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=425",
       "childPointers": ["F1","F2","F3"]
@@ -190,7 +190,7 @@
     {
       "id": "E2",
       "groupId": "E",
-      "name": "understanding WAS ND Clusters",
+      "name": "understand WAS ND Clusters",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=380&end=424",
       "childPointers": ["F1","F2","F3"]
@@ -198,7 +198,7 @@
     {
       "id": "E3",
       "groupId": "E",
-      "name": "understanding migration targets",
+      "name": "understand migration targets",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=17&end=164",
       "childPointers": ["F1","F2","F3"]
@@ -206,7 +206,7 @@
     {
       "id": "E4",
       "groupId": "E",
-      "name": "understanding the results",
+      "name": "understand the results",
       "color": "green",
       "primary": true,
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1",
@@ -215,7 +215,7 @@
     {
       "id": "E5",
       "groupId": "E",
-      "name": "understanding Complexity",
+      "name": "understand Complexity",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=239&end=314",
       "childPointers": ["F1","F2","F3"]
@@ -223,7 +223,7 @@
     {
       "id": "E6",
       "groupId": "E",
-      "name": "understanding Common Code",
+      "name": "understand Common Code",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=196&end=314",
       "childPointers": ["F1","F2","F3"]
@@ -231,7 +231,7 @@
     {
       "id": "E7",
       "groupId": "E",
-      "name": "understanding filtering",
+      "name": "understand filtering",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=316&end=345",
       "childPointers": ["F1","F2","F3"]
@@ -239,7 +239,7 @@
     {
       "id": "E8",
       "groupId": "E",
-      "name": "understanding exported reports",
+      "name": "understand exported reports",
       "docs" : "https://ibm.github.io/app-mod-journey/details/csvReports",
       "color": "green",
       "childPointers": ["F1","F2","F3"]
