@@ -1,8 +1,8 @@
 # Customer Testimonials
 
-- Transformation Advisor has been used by hundreds of customers to accelerate their modernization journey. Here are just a few....
+Transformation Advisor has been used by hundreds of customers to accelerate their modernization journey. Here are just a few....
 
-## Avoid seeing an upload error   
+## Testimonials, References and Use Cases  
 
 [Application Modernization at Discover with Liberty Runtime: The Need to Modernize](https://www.ibm.com/blog/application-modernization-at-discover-the-need-to-modernize/)
 
