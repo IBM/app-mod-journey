@@ -358,11 +358,7 @@ class App extends Component {
       //unencode it
       data = JSON.parse(decodeURIComponent(encodeDataParam));
     }
-
-    console.info('showingAll, showingBranches, tocMode >>> ', showingAll, showingBranches, tocMode);
-
     this.setState({showingAll, showingBranches, tocMode, data});
-
   }
 
   //We will read values from the URL now as well and use it to update state
@@ -486,7 +482,6 @@ class App extends Component {
     search = search + 'data=' + encodedData + '&';
 
     let newURL = baseURL + '?' + search;
-    console.info('updated URL: ', newURL);
     window.history.pushState({}, 'Test', newURL);
   }
 
