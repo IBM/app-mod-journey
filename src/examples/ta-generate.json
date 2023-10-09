@@ -130,7 +130,7 @@
       "id": "C7",
       "groupId": "C",
       "name": "using TA Data Collector (WebLogic)",
-      "primary": false,
+      "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#weblogic",
       "childPointers": ["D1","D2","D3"]
@@ -139,7 +139,7 @@
       "id": "C8",
       "groupId": "C",
       "name": "using TA Data Collector (JBoss)",
-      "primary": false,
+      "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#jboss",
       "childPointers": ["D1","D2","D3"]
@@ -148,7 +148,7 @@
       "id": "C9",
       "groupId": "C",
       "name": "using TA Data Collector (Tomcat)",
-      "primary": false,
+      "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",
       "childPointers": ["D1","D2","D3"]
