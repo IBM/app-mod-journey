@@ -327,17 +327,45 @@ class App extends Component {
     });
   };
 
+  updateStateFromURL() {
+
+    const queryParameters = new URLSearchParams(window.location.search)
+    const showingAll = ('true' === queryParameters.get("showingAll") ? true : false);
+    if(showingAll) {
+      this.showAll();
+    }
+
+    //Swap these around as the default value for showingBranches is false (this seems very hacky....)
+    const showingBranches = ('false' === queryParameters.get("showingBranches") ? false : true);
+    if(!showingBranches) {
+      this.showBranches();
+    }
+
+    //Swap these around as the default value for showingBranches is false (this seems very hacky....)
+    const tocMode = ('true' === queryParameters.get("tocMode") ? true : false);
+    if(tocMode) {
+      this.showToc();
+    }
+
+    console.info('showingAll, showingBranches, tocMode >>> ', showingAll, showingBranches, tocMode);
+
+    this.setState({showingAll, showingBranches, tocMode});
+
+  }
+
+  //We will read values from the URL now as well and use it to update state
   componentDidMount() {
     const dimensions = this.treeContainer.getBoundingClientRect();
     this.setState({
       translateX: dimensions.width / 25,
       translateY: dimensions.height / 2.5,
     });
-    this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
+    let data =  this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
+    this.setState({data}, () => this.updateStateFromURL());
   }
 
   showToc() {
-    this.setState({tocMode: !this.state.tocMode});
+    this.setState({tocMode: !this.state.tocMode}, () => {this.updateURL();});
   }
 
   getSectionNameFromGroupId(groupId) {
@@ -426,17 +454,30 @@ class App extends Component {
     if(this.state.showingBranches) {
       //It is currently true so we now swap and hide them
       let taGenerateBackup = JSON.parse(JSON.stringify(taGenerate)); //deep clone it
-      this.setState({showingBranches: !this.state.showingBranches, taGenerateBackup}, this.pruneBranches);
+      this.setState({showingBranches: !this.state.showingBranches, taGenerateBackup}, () => {this.pruneBranches();this.updateURL();});
     } else {
-      this.setState({showingBranches: !this.state.showingBranches}, this.restoreBranches);
+      this.setState({showingBranches: !this.state.showingBranches}, () => {this.restoreBranches();this.updateURL();});
     }
   }
 
-  showAll() {
+  //This method must always be called after state is set (so in the state setting callback)
+  updateURL() {
+    const baseURL = window.location.origin + window.location.pathname;
 
+    //Now we build the URL based on what is in the state
+    let search = 'showingAll=' + this.state.showingAll + '&';
+    search = search + 'showingBranches=' + this.state.showingBranches + '&';
+    search = search + 'tocMode=' + this.state.tocMode + '&';
+
+    let newURL = baseURL + '?' + search;
+    console.info('updated URL: ', newURL);
+    window.history.pushState({}, 'Test', newURL);
+  }
+
+  showAll() {
     let newDepth = this.state.showingAll ? 2 : 50;
     this.state.initialDepth = newDepth;
-    this.setState({showingAll: !this.state.showingAll});
+    this.setState({showingAll: !this.state.showingAll}, () => {this.updateURL()});
     let newData = Object.assign({}, this.state.data); //We need this to be a new object to make the tree re-render
     this.setTreeData(newData);
   }

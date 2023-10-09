@@ -196,7 +196,6 @@ class MixedNodeElement extends Component {
           nodeNameFontSize = '25px'
       }
 
-        console.info('nodeData.name: ', nodeData.name, nodeData.docs);
         return (
             <React.Fragment>
                 <circle fill={'white'} r={20} onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter} onMouseLeave={this.nodeMouseLeave}></circle>
