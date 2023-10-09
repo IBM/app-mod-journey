@@ -353,6 +353,9 @@ class App extends Component {
       this.showToc();
     }
 
+    //TODO
+    //The problem here is that the object is huge and will potentially cause problems
+    //Instead I probably need to just strip out the primaries and encode/decode those
     let data = this.state.data;
     const encodeDataParam = queryParameters.get("data");
     if(encodeDataParam != null) {
