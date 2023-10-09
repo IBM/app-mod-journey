@@ -130,6 +130,7 @@ class App extends Component {
       collapsible: true,
       shouldCollapseNeighborNodes: false,
       initialDepth: 2,
+      depthBeforeShowAll: 2,
       depthFactor: 250,
       zoomable: true,
       draggable: true,
@@ -486,9 +487,9 @@ class App extends Component {
   }
 
   showAll() {
-    let newDepth = this.state.showingAll ? 2 : 50;
-    this.state.initialDepth = newDepth;
-    this.setState({showingAll: !this.state.showingAll}, () => {this.updateURL()});
+    const depthBeforeShowAll = this.state.initialDepth;
+    let newDepth = this.state.showingAll ? this.state.depthBeforeShowAll : 50;
+    this.setState({showingAll: !this.state.showingAll, initialDepth: newDepth, depthBeforeShowAll}, () => {this.updateURL()});
     let newData = Object.assign({}, this.state.data); //We need this to be a new object to make the tree re-render
     this.setTreeData(newData);
   }
