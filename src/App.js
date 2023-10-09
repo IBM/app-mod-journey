@@ -330,6 +330,7 @@ class App extends Component {
   updateStateFromURL() {
 
     const queryParameters = new URLSearchParams(window.location.search)
+
     const showingAll = ('true' === queryParameters.get("showingAll") ? true : false);
     if(showingAll) {
       this.showAll();
@@ -341,15 +342,21 @@ class App extends Component {
       this.showBranches();
     }
 
-    //Swap these around as the default value for showingBranches is false (this seems very hacky....)
     const tocMode = ('true' === queryParameters.get("tocMode") ? true : false);
     if(tocMode) {
       this.showToc();
     }
 
+    let data = this.state.data;
+    const encodeDataParam = queryParameters.get("data");
+    if(encodeDataParam != null) {
+      //unencode it
+      data = JSON.parse(decodeURIComponent(encodeDataParam));
+    }
+
     console.info('showingAll, showingBranches, tocMode >>> ', showingAll, showingBranches, tocMode);
 
-    this.setState({showingAll, showingBranches, tocMode});
+    this.setState({showingAll, showingBranches, tocMode, data});
 
   }
 
@@ -469,6 +476,10 @@ class App extends Component {
     search = search + 'showingBranches=' + this.state.showingBranches + '&';
     search = search + 'tocMode=' + this.state.tocMode + '&';
 
+    //Going to encode the data object and see how big it is
+    let encodedData = encodeURIComponent(JSON.stringify(this.state.data));
+    search = search + 'data=' + encodedData + '&';
+
     let newURL = baseURL + '?' + search;
     console.info('updated URL: ', newURL);
     window.history.pushState({}, 'Test', newURL);
@@ -528,11 +539,9 @@ class App extends Component {
         }
       }
     }
-    //let newData = this.generateTreeData();
     let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
-    //let newData = this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
-    this.setTreeData(newData);
-    //this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
+    //this.setTreeData(newData);
+    this.setState({data : newData}, () => {this.updateURL();});
   }
 
   //We need a method that gets past an id, we pull that node, check if it has children, populate them if it does, then recursivly pass again
