@@ -217,7 +217,7 @@
       "groupId": "E",
       "name": "understand Complexity",
       "color": "green",
-      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=239&end=314",
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=196&end=314",
       "childPointers": ["F1","F2","F3"]
     },
     {
@@ -225,7 +225,7 @@
       "groupId": "E",
       "name": "understand Common Code",
       "color": "green",
-      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=196&end=314",
+      "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=239&end=314",
       "childPointers": ["F1","F2","F3"]
     },
     {
