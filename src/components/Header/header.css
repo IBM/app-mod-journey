@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     display: flex;
+    cursor: pointer;
 }
 .title-header {
     margin-left: 20px;

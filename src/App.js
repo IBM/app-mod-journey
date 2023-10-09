@@ -190,6 +190,11 @@ class App extends Component {
     this.setState({showDialog: true});
   };
 
+  //Clean up the URL and return to the starting point
+  goHome() {
+    window.location.href = window.location.origin + window.location.pathname;
+  }
+
   setTreeData(data) {
     this.setState({
       data/*,
@@ -625,7 +630,7 @@ class App extends Component {
     let actionControlCls = isTreeView ? 'tree--action-controls' : 'tree--action-controls-hide';
     return (
       <div className="App">
-        <Header onClick={() => this.showModal()} {...this.props} />
+        <Header aboutClick={() => this.showModal()} headerClick={() => this.goHome()} {...this.props} />
 
 
         {/*<h1> Mass Modernization Exemplar || <span style={{fontSize:'20px'}}><span style={{color:'green'}}>Green Nodes </span> = in scope for MVP</span></h1> */}
