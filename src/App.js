@@ -113,6 +113,7 @@ class App extends Component {
     this.pruneBranches = this.pruneBranches.bind(this);
     this.restoreBranches = this.restoreBranches.bind(this);
     this.showBranches = this.showBranches.bind(this);
+    this.flattenData = this.flattenData.bind(this);
 
     this.state = {
       tocMode: false, //Table of contents mode
@@ -333,6 +334,37 @@ class App extends Component {
     });
   };
 
+  flattenData(data) {
+    var result = [];
+    //console.info('data:: > ', data);
+    data.forEach((a) => {
+      result.push(a);
+      //console.info('a.children : ', a.children);
+      if (Array.isArray(a.children)) {
+        //console.info('found anarray......', a.children);
+        result = result.concat(this.flattenData(a.children));
+      }
+      //console.info('result >> ', result);
+    });
+    //console.info('result **** ', result);
+    return result;
+  }
+
+  getArrayOfPrimaries() {
+    console.info('this.state.data: ', this.state.data);
+    console.info('this.state.data.children: ', this.state.data.children);
+    console.info('this.state.data.children.flat(Infinity): ', this.state.data.children.flat(Infinity));
+    console.info('flattenData:: ', this.flattenData(this.state.data.children));
+    let flatData = this.flattenData(this.state.data.children);
+    let primaryArray = [];
+    flatData.forEach((a) => {
+      if(a.primary === true) {
+        primaryArray.push(a.id);
+      }
+    });
+    console.info('primaryArray: ', primaryArray);
+  }
+
   updateStateFromURL() {
 
     const queryParameters = new URLSearchParams(window.location.search)
@@ -356,13 +388,14 @@ class App extends Component {
     //TODO
     //The problem here is that the object is huge and will potentially cause problems
     //Instead I probably need to just strip out the primaries and encode/decode those
-    let data = this.state.data;
-    const encodeDataParam = queryParameters.get("data");
-    if(encodeDataParam != null) {
+    /*let data = this.state.data;
+    const encodedDataParam = queryParameters.get("data");
+    if(encodedDataParam != null) {
       //unencode it
-      data = JSON.parse(decodeURIComponent(encodeDataParam));
+      data = JSON.parse(decodeURIComponent(encodedDataParam));
     }
-    this.setState({showingAll, showingBranches, tocMode, data});
+    this.setState({showingAll, showingBranches, tocMode, data});*/
+    this.setState({showingAll, showingBranches, tocMode});
   }
 
   //We will read values from the URL now as well and use it to update state
@@ -481,9 +514,11 @@ class App extends Component {
     search = search + 'showingBranches=' + this.state.showingBranches + '&';
     search = search + 'tocMode=' + this.state.tocMode + '&';
 
-    //Going to encode the data object and see how big it is
-    let encodedData = encodeURIComponent(JSON.stringify(this.state.data));
-    search = search + 'data=' + encodedData + '&';
+    this.getArrayOfPrimaries();
+    //Going to encode the list of primaries in the data object
+    //The whole objct is too big to encode (you can do it, but some things are going a bit funny)
+    //let encodedData = encodeURIComponent(JSON.stringify(this.state.data));
+    //search = search + 'data=' + encodedData + '&';
 
     let newURL = baseURL + '?' + search;
     window.history.pushState({}, 'Test', newURL);
