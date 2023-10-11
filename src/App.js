@@ -109,18 +109,19 @@ class App extends Component {
     this.setTreeData = this.setTreeData.bind(this);
     this.setActionSentence = this.setActionSentence.bind(this);
     this.generateTreeData = this.generateTreeData.bind(this);
-    this.changePrimaryInGroupAndReload = this.changePrimaryInGroupAndReload.bind(this);
+    this.changePrimaryInGroupByNameAndReload = this.changePrimaryInGroupByNameAndReload.bind(this);
     this.pruneBranches = this.pruneBranches.bind(this);
     this.restoreBranches = this.restoreBranches.bind(this);
     this.showBranches = this.showBranches.bind(this);
     this.flattenData = this.flattenData.bind(this);
+    this.updateStateFromURL = this.updateStateFromURL.bind(this);
 
     this.state = {
       tocMode: false, //Table of contents mode
       data: { name: 'initial'},
       taGenerateBackup: {},
       updateTree: this.setTreeData,
-      changePrimary: this.changePrimaryInGroupAndReload,
+      changePrimary: this.changePrimaryInGroupByNameAndReload,
       updateActionSentence: this.setActionSentence,
       totalNodeCount: countNodes(0, Array.isArray(orgChartJson) ? orgChartJson[0] : orgChartJson),
       orientation: 'horizontal',
@@ -130,7 +131,7 @@ class App extends Component {
       translateY: 200,
       collapsible: true,
       shouldCollapseNeighborNodes: false,
-      initialDepth: 2,
+      initialDepth: 5,
       depthBeforeShowAll: 2,
       depthFactor: 250,
       zoomable: true,
@@ -336,26 +337,17 @@ class App extends Component {
 
   flattenData(data) {
     var result = [];
-    //console.info('data:: > ', data);
     data.forEach((a) => {
       result.push(a);
-      //console.info('a.children : ', a.children);
       if (Array.isArray(a.children)) {
-        //console.info('found anarray......', a.children);
         result = result.concat(this.flattenData(a.children));
       }
-      //console.info('result >> ', result);
     });
-    //console.info('result **** ', result);
     return result;
   }
 
   getArrayOfPrimaries() {
-    console.info('this.state.data: ', this.state.data);
-    console.info('this.state.data.children: ', this.state.data.children);
-    console.info('this.state.data.children.flat(Infinity): ', this.state.data.children.flat(Infinity));
-    console.info('flattenData:: ', this.flattenData(this.state.data.children));
-    let flatData = this.flattenData(this.state.data.children);
+    let flatData = this.flattenData([this.state.data]);
     let primaryArray = [];
     flatData.forEach((a) => {
       if(a.primary === true) {
@@ -363,6 +355,7 @@ class App extends Component {
       }
     });
     console.info('primaryArray: ', primaryArray);
+    return primaryArray;
   }
 
   updateStateFromURL() {
@@ -385,6 +378,34 @@ class App extends Component {
       this.showToc();
     }
 
+    let primaryData = [];
+    const encodedDataParam = queryParameters.get("primaryData");
+    let newData = this.state.data;
+    if(encodedDataParam != null) {
+      //unencode it
+      primaryData = JSON.parse(decodeURIComponent(encodedDataParam));
+      console.info('primaryData >>>> ', primaryData);
+      //now we update all the primaries to the new values
+      /*let flatData = this.flattenData([this.state.data]);
+      console.info('.flattened dtaa >>> ', flatData);
+      flatData.forEach((a) => {
+        a.primary = false;
+      });
+      console.info('Noe there are no primaries, has the state been updated?', this.state.data);
+      newData = Object.assign({}, this.state.data);*/
+      /*for(let entry of taGenerate.data) {
+          if(entry.id === 'C1') {
+            entry.primary = true;
+          } else {
+            entry.primary = false;
+          }
+        }
+      console.info(' taGenerate.data afterwatsd: ', taGenerate.data);
+      console.info('this.getEntryFromGeneratedData("A1") >> ', this.getEntryFromGeneratedData("A1"));
+      newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
+      console.info('newData: ', newData); */
+      this.changePrimaryInGroupByNameAndReload('using WSADMIN Command');
+    }
     //TODO
     //The problem here is that the object is huge and will potentially cause problems
     //Instead I probably need to just strip out the primaries and encode/decode those
@@ -514,11 +535,10 @@ class App extends Component {
     search = search + 'showingBranches=' + this.state.showingBranches + '&';
     search = search + 'tocMode=' + this.state.tocMode + '&';
 
-    this.getArrayOfPrimaries();
-    //Going to encode the list of primaries in the data object
-    //The whole objct is too big to encode (you can do it, but some things are going a bit funny)
-    //let encodedData = encodeURIComponent(JSON.stringify(this.state.data));
-    //search = search + 'data=' + encodedData + '&';
+    let primaryArray = this.getArrayOfPrimaries();
+    console.info()
+    let primaryArrayEncoded = encodeURIComponent(JSON.stringify(primaryArray));
+    search = search + 'primaryData=' + primaryArrayEncoded + '&';
 
     let newURL = baseURL + '?' + search;
     window.history.pushState({}, 'Test', newURL);
@@ -565,7 +585,7 @@ class App extends Component {
   }
 
   //Here we set a new primary flag in the data
-  changePrimaryInGroupAndReload(name) {
+  changePrimaryInGroupByNameAndReload(name) {
     let node = this.getEntryFromGeneratedDataByName(name);
     let groupId = node.groupId;
     let groupNodes = [];
@@ -585,7 +605,9 @@ class App extends Component {
 
   //We need a method that gets past an id, we pull that node, check if it has children, populate them if it does, then recursivly pass again
   populateAllTreeData(node) {
+    console.info('node:::: ', node);
     if(this.hasChildPointers(node) && node.primary) {
+      console.info('has children and is primary: ', node.id, node.name);
       let children = [];
       for(let childPointer of node.childPointers) {
         let child = this.getEntryFromGeneratedData(childPointer);
@@ -602,6 +624,7 @@ class App extends Component {
         }
       }
     }
+    console.info('populateAllTreeData: ', node);
     return node;
   }
 
