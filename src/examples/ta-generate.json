@@ -251,7 +251,7 @@
       "docs": "https://ibm.github.io/app-mod-journey/details/twasContainers",
       "videos": "https://www.youtube.com/embed/d0meOKDkrYw?autoplay=1&start=21",
       "color": "black",
-      "childPointers": ["G1","G2"]
+      "childPointers": ["G1"]
     },
     {
       "id": "F2",

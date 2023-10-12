@@ -131,7 +131,7 @@ class App extends Component {
       translateY: 200,
       collapsible: true,
       shouldCollapseNeighborNodes: false,
-      initialDepth: 5,
+      initialDepth: 2,
       depthBeforeShowAll: 2,
       depthFactor: 250,
       zoomable: true,
@@ -354,7 +354,6 @@ class App extends Component {
         primaryArray.push(a.id);
       }
     });
-    console.info('primaryArray: ', primaryArray);
     return primaryArray;
   }
 
@@ -378,45 +377,23 @@ class App extends Component {
       this.showToc();
     }
 
+    let depth = queryParameters.get("depth");
+    if(depth == null) {
+      depth = 2;
+    }
+
     let primaryData = [];
     const encodedDataParam = queryParameters.get("primaryData");
-    let newData = this.state.data;
     if(encodedDataParam != null) {
       //unencode it
       primaryData = JSON.parse(decodeURIComponent(encodedDataParam));
-      console.info('primaryData >>>> ', primaryData);
-      //now we update all the primaries to the new values
-      /*let flatData = this.flattenData([this.state.data]);
-      console.info('.flattened dtaa >>> ', flatData);
-      flatData.forEach((a) => {
-        a.primary = false;
-      });
-      console.info('Noe there are no primaries, has the state been updated?', this.state.data);
-      newData = Object.assign({}, this.state.data);*/
-      /*for(let entry of taGenerate.data) {
-          if(entry.id === 'C1') {
-            entry.primary = true;
-          } else {
-            entry.primary = false;
-          }
-        }
-      console.info(' taGenerate.data afterwatsd: ', taGenerate.data);
-      console.info('this.getEntryFromGeneratedData("A1") >> ', this.getEntryFromGeneratedData("A1"));
-      newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
-      console.info('newData: ', newData); */
-      this.changePrimaryInGroupByNameAndReload('using WSADMIN Command');
+
+      for(let entry of primaryData) {
+        let nodeName = this.getNodeNameFromNodeId(entry);
+        this.changePrimaryInGroupByNameAndReload(nodeName);
+      }
     }
-    //TODO
-    //The problem here is that the object is huge and will potentially cause problems
-    //Instead I probably need to just strip out the primaries and encode/decode those
-    /*let data = this.state.data;
-    const encodedDataParam = queryParameters.get("data");
-    if(encodedDataParam != null) {
-      //unencode it
-      data = JSON.parse(decodeURIComponent(encodedDataParam));
-    }
-    this.setState({showingAll, showingBranches, tocMode, data});*/
-    this.setState({showingAll, showingBranches, tocMode});
+    this.setState({showingAll, showingBranches, tocMode, initialDepth: depth});
   }
 
   //We will read values from the URL now as well and use it to update state
@@ -438,6 +415,15 @@ class App extends Component {
     for(let section of taGenerate.tocSections) {
       if(section.groupId === groupId) {
         return section.name
+      }
+    }
+    return null;
+  }
+
+  getNodeNameFromNodeId(nodeId) {
+    for(let entry of taGenerate.data) {
+      if(entry.id === nodeId) {
+        return entry.name
       }
     }
     return null;
@@ -534,9 +520,9 @@ class App extends Component {
     let search = 'showingAll=' + this.state.showingAll + '&';
     search = search + 'showingBranches=' + this.state.showingBranches + '&';
     search = search + 'tocMode=' + this.state.tocMode + '&';
+    search = search + 'depth=' + this.state.initialDepth + '&';
 
     let primaryArray = this.getArrayOfPrimaries();
-    console.info()
     let primaryArrayEncoded = encodeURIComponent(JSON.stringify(primaryArray));
     search = search + 'primaryData=' + primaryArrayEncoded + '&';
 
@@ -605,9 +591,7 @@ class App extends Component {
 
   //We need a method that gets past an id, we pull that node, check if it has children, populate them if it does, then recursivly pass again
   populateAllTreeData(node) {
-    console.info('node:::: ', node);
     if(this.hasChildPointers(node) && node.primary) {
-      console.info('has children and is primary: ', node.id, node.name);
       let children = [];
       for(let childPointer of node.childPointers) {
         let child = this.getEntryFromGeneratedData(childPointer);
@@ -624,7 +608,6 @@ class App extends Component {
         }
       }
     }
-    console.info('populateAllTreeData: ', node);
     return node;
   }
 
