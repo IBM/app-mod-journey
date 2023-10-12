@@ -115,11 +115,13 @@ class App extends Component {
     this.showBranches = this.showBranches.bind(this);
     this.flattenData = this.flattenData.bind(this);
     this.updateStateFromURL = this.updateStateFromURL.bind(this);
+    this.updateURL = this.updateURL.bind(this);
 
     this.state = {
       tocMode: false, //Table of contents mode
       data: { name: 'initial'},
       taGenerateBackup: {},
+      updateURL: this.updateURL,
       updateTree: this.setTreeData,
       changePrimary: this.changePrimaryInGroupByNameAndReload,
       updateActionSentence: this.setActionSentence,
@@ -533,6 +535,7 @@ class App extends Component {
   showAll() {
     const depthBeforeShowAll = this.state.initialDepth;
     let newDepth = this.state.showingAll ? this.state.depthBeforeShowAll : 50;
+    console.info('depthBeforeShowAll, newDepth, this.state.showingAll: ',depthBeforeShowAll, newDepth, this.state.showingAll);
     this.setState({showingAll: !this.state.showingAll, initialDepth: newDepth, depthBeforeShowAll}, () => {this.updateURL()});
     let newData = Object.assign({}, this.state.data); //We need this to be a new object to make the tree re-render
     this.setTreeData(newData);

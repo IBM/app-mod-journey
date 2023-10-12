@@ -102,7 +102,7 @@ class MixedNodeElement extends Component {
       }
   }
 
-  swapChildrenInTree2(appState, data, name, triggerNodeToggle) {
+  swapChildrenInTree2(appState, data, name) {
         let currentNodeWithChildren = data;
         let matchedNode = null;
         let depth = 50;
@@ -167,15 +167,10 @@ class MixedNodeElement extends Component {
   }
 
   nodeClick() {
-      let {appState, nodeData = {}, triggerNodeToggle, foreignObjectProps = {}} = this.props;
+      let {appState, nodeData = {}} = this.props;
       //At this point we find the siblings of this node, then find the one with children and move those children to this node
       //Going to hard code for now
-      if(nodeData.children && nodeData.children.length >0) {
-          appState.updateActionSentence(this.getActionSentence(appState.data, nodeData.name));
-          triggerNodeToggle();
-      } else {
-          this.swapChildrenInTree2(appState, appState.data, nodeData.name, triggerNodeToggle);
-      }
+      this.swapChildrenInTree2(appState, appState.data, nodeData.name);
   }
 
   getFontColor(color) {
