@@ -109,17 +109,21 @@ class App extends Component {
     this.setTreeData = this.setTreeData.bind(this);
     this.setActionSentence = this.setActionSentence.bind(this);
     this.generateTreeData = this.generateTreeData.bind(this);
-    this.changePrimaryInGroupAndReload = this.changePrimaryInGroupAndReload.bind(this);
+    this.changePrimaryInGroupByNameAndReload = this.changePrimaryInGroupByNameAndReload.bind(this);
     this.pruneBranches = this.pruneBranches.bind(this);
     this.restoreBranches = this.restoreBranches.bind(this);
     this.showBranches = this.showBranches.bind(this);
+    this.flattenData = this.flattenData.bind(this);
+    this.updateStateFromURL = this.updateStateFromURL.bind(this);
+    this.updateURL = this.updateURL.bind(this);
 
     this.state = {
       tocMode: false, //Table of contents mode
       data: { name: 'initial'},
       taGenerateBackup: {},
+      updateURL: this.updateURL,
       updateTree: this.setTreeData,
-      changePrimary: this.changePrimaryInGroupAndReload,
+      changePrimary: this.changePrimaryInGroupByNameAndReload,
       updateActionSentence: this.setActionSentence,
       totalNodeCount: countNodes(0, Array.isArray(orgChartJson) ? orgChartJson[0] : orgChartJson),
       orientation: 'horizontal',
@@ -130,6 +134,7 @@ class App extends Component {
       collapsible: true,
       shouldCollapseNeighborNodes: false,
       initialDepth: 2,
+      depthBeforeShowAll: 2,
       depthFactor: 250,
       zoomable: true,
       draggable: true,
@@ -189,6 +194,11 @@ class App extends Component {
   showModal = () => {
     this.setState({showDialog: true});
   };
+
+  //Clean up the URL and return to the starting point
+  goHome() {
+    window.location.href = window.location.origin + window.location.pathname;
+  }
 
   setTreeData(data) {
     this.setState({
@@ -327,23 +337,95 @@ class App extends Component {
     });
   };
 
+  flattenData(data) {
+    var result = [];
+    data.forEach((a) => {
+      result.push(a);
+      if (Array.isArray(a.children)) {
+        result = result.concat(this.flattenData(a.children));
+      }
+    });
+    return result;
+  }
+
+  getArrayOfPrimaries() {
+    let flatData = this.flattenData([this.state.data]);
+    let primaryArray = [];
+    flatData.forEach((a) => {
+      if(a.primary === true) {
+        primaryArray.push(a.id);
+      }
+    });
+    return primaryArray;
+  }
+
+  updateStateFromURL() {
+
+    const queryParameters = new URLSearchParams(window.location.search)
+
+    const showingAll = ('true' === queryParameters.get("showingAll") ? true : false);
+    if(showingAll) {
+      this.showAll();
+    }
+
+    //Swap these around as the default value for showingBranches is false (this seems very hacky....)
+    const showingBranches = ('false' === queryParameters.get("showingBranches") ? false : true);
+    if(!showingBranches) {
+      this.showBranches();
+    }
+
+    const tocMode = ('true' === queryParameters.get("tocMode") ? true : false);
+    if(tocMode) {
+      this.showToc();
+    }
+
+    let depth = queryParameters.get("depth");
+    if(depth == null) {
+      depth = 2;
+    }
+
+    let primaryData = [];
+    const encodedDataParam = queryParameters.get("primaryData");
+    if(encodedDataParam != null) {
+      //unencode it
+      primaryData = JSON.parse(decodeURIComponent(encodedDataParam));
+
+      for(let entry of primaryData) {
+        let nodeName = this.getNodeNameFromNodeId(entry);
+        this.changePrimaryInGroupByNameAndReload(nodeName);
+      }
+    }
+    this.setState({showingAll, showingBranches, tocMode, initialDepth: depth});
+  }
+
+  //We will read values from the URL now as well and use it to update state
   componentDidMount() {
     const dimensions = this.treeContainer.getBoundingClientRect();
     this.setState({
       translateX: dimensions.width / 25,
       translateY: dimensions.height / 2.5,
     });
-    this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
+    let data =  this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
+    this.setState({data}, () => this.updateStateFromURL());
   }
 
   showToc() {
-    this.setState({tocMode: !this.state.tocMode});
+    this.setState({tocMode: !this.state.tocMode}, () => {this.updateURL();});
   }
 
   getSectionNameFromGroupId(groupId) {
     for(let section of taGenerate.tocSections) {
       if(section.groupId === groupId) {
         return section.name
+      }
+    }
+    return null;
+  }
+
+  getNodeNameFromNodeId(nodeId) {
+    for(let entry of taGenerate.data) {
+      if(entry.id === nodeId) {
+        return entry.name
       }
     }
     return null;
@@ -426,17 +508,35 @@ class App extends Component {
     if(this.state.showingBranches) {
       //It is currently true so we now swap and hide them
       let taGenerateBackup = JSON.parse(JSON.stringify(taGenerate)); //deep clone it
-      this.setState({showingBranches: !this.state.showingBranches, taGenerateBackup}, this.pruneBranches);
+      this.setState({showingBranches: !this.state.showingBranches, taGenerateBackup}, () => {this.pruneBranches();this.updateURL();});
     } else {
-      this.setState({showingBranches: !this.state.showingBranches}, this.restoreBranches);
+      this.setState({showingBranches: !this.state.showingBranches}, () => {this.restoreBranches();this.updateURL();});
     }
   }
 
-  showAll() {
+  //This method must always be called after state is set (so in the state setting callback)
+  updateURL() {
+    const baseURL = window.location.origin + window.location.pathname;
 
-    let newDepth = this.state.showingAll ? 2 : 50;
-    this.state.initialDepth = newDepth;
-    this.setState({showingAll: !this.state.showingAll});
+    //Now we build the URL based on what is in the state
+    let search = 'showingAll=' + this.state.showingAll + '&';
+    search = search + 'showingBranches=' + this.state.showingBranches + '&';
+    search = search + 'tocMode=' + this.state.tocMode + '&';
+    search = search + 'depth=' + this.state.initialDepth + '&';
+
+    let primaryArray = this.getArrayOfPrimaries();
+    let primaryArrayEncoded = encodeURIComponent(JSON.stringify(primaryArray));
+    search = search + 'primaryData=' + primaryArrayEncoded + '&';
+
+    let newURL = baseURL + '?' + search;
+    window.history.pushState({}, 'Test', newURL);
+  }
+
+  showAll() {
+    const depthBeforeShowAll = this.state.initialDepth;
+    let newDepth = this.state.showingAll ? this.state.depthBeforeShowAll : 50;
+    console.info('depthBeforeShowAll, newDepth, this.state.showingAll: ',depthBeforeShowAll, newDepth, this.state.showingAll);
+    this.setState({showingAll: !this.state.showingAll, initialDepth: newDepth, depthBeforeShowAll}, () => {this.updateURL()});
     let newData = Object.assign({}, this.state.data); //We need this to be a new object to make the tree re-render
     this.setTreeData(newData);
   }
@@ -474,7 +574,7 @@ class App extends Component {
   }
 
   //Here we set a new primary flag in the data
-  changePrimaryInGroupAndReload(name) {
+  changePrimaryInGroupByNameAndReload(name) {
     let node = this.getEntryFromGeneratedDataByName(name);
     let groupId = node.groupId;
     let groupNodes = [];
@@ -487,11 +587,9 @@ class App extends Component {
         }
       }
     }
-    //let newData = this.generateTreeData();
     let newData = Object.assign({}, this.populateAllTreeData(this.getEntryFromGeneratedData("A1")));
-    //let newData = this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
-    this.setTreeData(newData);
-    //this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
+    //this.setTreeData(newData);
+    this.setState({data : newData}, () => {this.updateURL();});
   }
 
   //We need a method that gets past an id, we pull that node, check if it has children, populate them if it does, then recursivly pass again
@@ -575,7 +673,7 @@ class App extends Component {
     let actionControlCls = isTreeView ? 'tree--action-controls' : 'tree--action-controls-hide';
     return (
       <div className="App">
-        <Header onClick={() => this.showModal()} {...this.props} />
+        <Header aboutClick={() => this.showModal()} headerClick={() => this.goHome()} {...this.props} />
 
 
         {/*<h1> Mass Modernization Exemplar || <span style={{fontSize:'20px'}}><span style={{color:'green'}}>Green Nodes </span> = in scope for MVP</span></h1> */}
