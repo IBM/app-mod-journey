@@ -217,11 +217,11 @@ class MixedNodeElement extends Component {
                                     fontSize: nodeNameFontSize
                                 }}>{nodeData.name}</span>
                                     <div style={{backgroundColor: 'white'}}>
-                                        <span style={{fontSize: 22}}>{nodeData.docs ? (
+                                        <span style={{fontSize: 22, fontWeight: 500}}>{nodeData.docs ? (
                                             <a target='_blank' href={nodeData.docs}>Docs</a>) : ''}</span>
                                         <span
-                                            style={{fontSize: 22}}> {(nodeData.docs && nodeData.videos) ? ('|') : ''} </span>
-                                        <span style={{fontSize: 22}}>{nodeData.videos ? (
+                                            style={{fontSize: 22, fontWeight: 500}}> {(nodeData.docs && nodeData.videos) ? ('|') : ''} </span>
+                                        <span style={{fontSize: 22, fontWeight: 500}}>{nodeData.videos ? (
                                             <a target='_blank' href={nodeData.videos}>Videos</a>) : ''}</span>
                                     </div>
                             </div>
