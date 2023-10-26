@@ -212,7 +212,7 @@ class MixedNodeElement extends Component {
                                 <span onClick={this.nodeClick} onMouseEnter={this.nodeMouseEnter}
                                       onMouseLeave={this.nodeMouseLeave} style={{
                                     backgroundColor: 'white',
-                                    color: nodeData.primary ? 'black' : 'lightgrey',
+                                    color: nodeData.primary ? 'black' : 'grey',
                                     fontWeight: nodeData.primary ? '700' : '400',
                                     fontSize: nodeNameFontSize
                                 }}>{nodeData.name}</span>
