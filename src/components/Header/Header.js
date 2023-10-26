@@ -14,6 +14,7 @@ export default class Header extends React.Component {
           </div>
           <div className={'additional-header-links'}>
             <span><a target='_blank'  rel='noopener noreferrer' href='https://ibm.github.io/app-mod-journey/details/customerTestimonials'> Testimonials</a> </span>
+            <span><a target='_blank'  rel='noopener noreferrer' href='https://ibm.github.io/app-mod-journey/details/install'> Install</a> </span>
             <span><a href='#' onClick={aboutClick}> About</a> </span>
             <span><a target='_blank'  rel='noopener noreferrer' href='https://ibm.github.io/app-mod-journey/details/privacy'> Privacy</a> </span>
             <span><a target='_blank'  rel='noopener noreferrer' href='https://github.com/IBM/app-mod-journey/tree/main'> Contribute</a> </span>
