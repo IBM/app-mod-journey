@@ -12,9 +12,5 @@ jobs:
         run: npm start
       - name: Install Cypress and run tests
         uses: cypress-io/github-action@v6
-        timeout-minutes: 10
         with:
-          browser: chrome
-          record: true
-          build: npm run build
           command: npx cypress run >/dev/null
