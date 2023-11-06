@@ -1,0 +1,22 @@
+{
+  "sourceType": "unambiguous",
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions",
+            "safari >= 9",
+            "ie >= 11",
+            "Edge >= 14",
+            "Chrome >= 59",
+            "Firefox > 52"
+          ]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": ["@babel/plugin-transform-modules-commonjs", "@babel/plugin-transform-object-rest-spread"]
+}
