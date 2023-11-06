@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import clone from 'clone';
 import Tree from 'react-d3-tree';
-import { version } from 'react-d3-tree/package.json';
+//import { version } from 'react-d3-tree/package.json';
 import Switch from './components/Switch';
 import MixedNodeElement from './components/MixedNodeElement';
 import PureSvgNodeElement from './components/PureSvgNodeElement';
@@ -650,11 +650,11 @@ class App extends Component {
     return(<React.Fragment>
         {/*this.state.showingBranches ? <ViewFilled size={16}  /> : <ViewOffFilled size={16} />*/}
 
-        <span className=''><a href='#' onClick={() => this.showBranches()}>{
-          !this.state.showingBranches ? 'Show unselected nodes' : 'Hide unselected nodes'}</a>
+        <span className=''><button className={'link-style'} onClick={() => this.showBranches()}>{
+          !this.state.showingBranches ? 'Show unselected nodes' : 'Hide unselected nodes'}</button>
           {/*} <Toggle id="toggle-4" labelText="unselected node text" />*/}
         </span> <span className={'divider'}/>
-        <span><a href='#' onClick={() => this.showAll()}>{this.state.showingAll ? ' Collapse tree view' : ' Expand tree view'} </a> </span>
+        <span><button className={'link-style'} onClick={() => this.showAll()}>{this.state.showingAll ? ' Collapse tree view' : ' Expand tree view'} </button> </span>
       </React.Fragment>
     );
   }
@@ -683,7 +683,7 @@ class App extends Component {
             {/*<a href="#" onClick={() => this.setTreeData(ta)}>main-path</a> |
           <a href='#' onClick={() => this.setTreeData(taVerb)}>verb-path</a> |
           <a href='#' onClick={() => this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")))}>generate</a> | */}
-            <span><a href='#' onClick={() => this.showToc()}>{this.state.tocMode ? ' Show Tree ' : ' Show Table of Contents'}</a> </span>
+            <span><button className={'link-style'} onClick={() => this.showToc()}>{this.state.tocMode ? ' Show Tree ' : ' Show Table of Contents'}</button> </span>
             <span className={actionControlCls}>{treeViewActionComponent}</span>
 
           </div>

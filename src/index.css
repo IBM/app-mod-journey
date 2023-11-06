@@ -100,3 +100,14 @@ body {
   box-shadow: 0 1px 3px 0 rgba(0,0,0,.1);
   border: 1px solid rgba(38,85,115,.15);*/
 }
+.link-style{
+  color: #337ab7;
+  text-decoration: none;
+  background: transparent;
+  border: none;
+}
+.link-style:hover,
+.link-style:focus{
+  color: #23527c;
+  text-decoration: underline;
+}
