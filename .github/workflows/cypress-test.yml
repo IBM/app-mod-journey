@@ -2,7 +2,8 @@ name: Cypress tests
 on: push
 jobs:
   branches:
-    - 'addCypress'
+    - '*'
+    - '!main'
   cypress-run:
     name: Cypress run
     runs-on: ubuntu-22.04
