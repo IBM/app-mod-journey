@@ -10,7 +10,6 @@ jobs:
       - name: Install root dependencies
         run: npm ci
       - name: Start server in the background
-        runTests: false
         run: npm start
       - name: Install Cypress and run tests
         uses: cypress-io/github-action@v6
