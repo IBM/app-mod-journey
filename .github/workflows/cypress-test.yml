@@ -8,11 +8,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install root dependencies
-        run: npm install
+        run: npm ci
       - name: Start server in the background
         run: npm start &
       - name: Install Cypress and run tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: app-mod-journey
           config-file: cypress.config.js
