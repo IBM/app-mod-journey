@@ -12,7 +12,6 @@ jobs:
       - name: Install Cypress and run tests
         uses: cypress-io/github-action@v6
         with:
-          record: true
           # Cancel the run after 2 failed tests
           auto-cancel-after-failures: 2
           build: npm run build

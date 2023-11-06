@@ -176,7 +176,7 @@ class MixedNodeElement extends Component {
   getFontColor(color) {
         //Override for now
         return 'black';
-        if(color != 'undefined') {
+        if(color !== 'undefined') {
             return color;
         }
         return 'black';
