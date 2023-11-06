@@ -40,7 +40,7 @@ class MixedNodeElement extends Component {
     }
 
     findNodeWithChildrenInTree(treeNode)  {
-        if(treeNode != null) {
+        if(treeNode !== null) {
             let treeBranch = treeNode.children;
             for(let i=0;i<treeBranch.length;i++) {
                 if(treeBranch[i].children) {
@@ -53,7 +53,7 @@ class MixedNodeElement extends Component {
 
   //Search for node in this tree branch, returning null if it is not found
   findNodeInTree(treeNode, name, depth)  {
-        if(treeNode != null) {
+        if(treeNode !== null) {
             let treeBranch = treeNode.children
             //check the name
             for(let i=0;i<treeBranch.length;i++) {
@@ -218,11 +218,11 @@ class MixedNodeElement extends Component {
                                 }}>{nodeData.name}</span>
                                     <div style={{backgroundColor: 'white'}}>
                                         <span style={{fontSize: 22, fontWeight: 500}}>{nodeData.docs ? (
-                                            <a target='_blank' href={nodeData.docs}>Docs</a>) : ''}</span>
+                                            <a target='_blank' rel='noopener noreferrer' href={nodeData.docs}>Docs</a>) : ''}</span>
                                         <span
                                             style={{fontSize: 22, fontWeight: 500}}> {(nodeData.docs && nodeData.videos) ? ('|') : ''} </span>
                                         <span style={{fontSize: 22, fontWeight: 500}}>{nodeData.videos ? (
-                                            <a target='_blank' href={nodeData.videos}>Videos</a>) : ''}</span>
+                                            <a target='_blank' rel='noopener noreferrer' href={nodeData.videos}>Videos</a>) : ''}</span>
                                     </div>
                             </div>
                         </div>
