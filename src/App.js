@@ -441,7 +441,7 @@ class App extends Component {
     let generatedTOC = [];
     generatedTOC.push(<div className={'h1-heading'}>
       <TableOfContents size={'20px'} />
-      <span style={{marginLeft:'5px'}}>Table of Contents</span></div>);
+      <span data-cy='toc-title' style={{marginLeft:'5px'}}>Table of Contents</span></div>);
     for(let entry of taGenerate.data) {
       //Check if this is teh first entry for the group,a nd add the heading for the group if it is
       if(!groupSet.has(entry.groupId)) {
@@ -683,7 +683,7 @@ class App extends Component {
             {/*<a href="#" onClick={() => this.setTreeData(ta)}>main-path</a> |
           <a href='#' onClick={() => this.setTreeData(taVerb)}>verb-path</a> |
           <a href='#' onClick={() => this.setTreeData(this.populateAllTreeData(this.getEntryFromGeneratedData("A1")))}>generate</a> | */}
-            <span><button className={'link-style'} onClick={() => this.showToc()}>{this.state.tocMode ? ' Show Tree ' : ' Show Table of Contents'}</button> </span>
+            <span><button data-cy='show-toc-view' className={'link-style'} onClick={() => this.showToc()}>{this.state.tocMode ? ' Show Tree ' : ' Show Table of Contents'}</button> </span>
             <span className={actionControlCls}>{treeViewActionComponent}</span>
 
           </div>
