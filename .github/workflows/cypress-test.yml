@@ -2,11 +2,12 @@ name: Cypress tests
 on: push
 jobs:
   cypress-run:
-    needs: test
-    runs-on: ubuntu-latest
+    name: Cypress run
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout repo code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+        run: npm ci
       - name: Start server in the background
         run: npm start
       - name: Install Cypress and run tests
