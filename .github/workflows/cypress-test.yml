@@ -8,9 +8,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install root dependencies
-        run: npm cache clean --force & npm ci
+        run: npm cache clean --force & rm -rf node_modules & npm ci
       - name: Start server in the background
-        run: npm start &
+        run: npm start
       - name: Install Cypress and run tests
         uses: cypress-io/github-action@v6
         with:
