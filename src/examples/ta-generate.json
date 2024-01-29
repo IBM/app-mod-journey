@@ -185,7 +185,7 @@
       "name": "understand Groups",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=425",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "E2",
@@ -193,7 +193,7 @@
       "name": "understand WAS ND Clusters",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=380&end=424",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "E3",
@@ -201,7 +201,7 @@
       "name": "understand migration targets",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=17&end=164",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "E4",
@@ -210,7 +210,7 @@
       "color": "green",
       "primary": true,
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "E5",
@@ -218,7 +218,7 @@
       "name": "understand Complexity",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=196&end=314",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "E6",
@@ -226,7 +226,7 @@
       "name": "understand Common Code",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=239&end=314",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "E7",
@@ -234,7 +234,7 @@
       "name": "understand filtering",
       "color": "green",
       "videos": "https://www.youtube.com/embed/VZqqZbZHtyg?autoplay=1&start=316&end=345",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "E8",
@@ -242,7 +242,7 @@
       "name": "understand exported reports",
       "docs" : "https://ibm.github.io/app-mod-journey/details/csvReports",
       "color": "green",
-      "childPointers": ["F1","F2","F3"]
+      "childPointers": ["F1","F2","F3","F4","F5"]
     },
     {
       "id": "F1",
@@ -268,6 +268,22 @@
       "groupId": "F",
       "name": "deploy a Simple app to Kubernetes",
       "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetes",
+      "color": "black",
+      "childPointers": ["G1"]
+    },
+    {
+      "id": "F4",
+      "groupId": "F",
+      "name": "deploy a Simple app to Kubernetes with secure DB2 connection",
+      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureDB2",
+      "color": "black",
+      "childPointers": ["G1"]
+    },
+     {
+      "id": "F5",
+      "groupId": "F",
+      "name": "deploy a Simple app to Kubernetes with secure MQ connection",
+      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureMQ",
       "color": "black",
       "childPointers": ["G1"]
     },
