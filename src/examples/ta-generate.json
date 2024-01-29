@@ -275,7 +275,7 @@
       "id": "F4",
       "groupId": "F",
       "name": "deploy a Simple app to Kubernetes with secure DB2 connection",
-      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureDB",
+      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureDB2",
       "color": "black",
       "childPointers": ["G1"]
     },
