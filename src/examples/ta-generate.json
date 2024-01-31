@@ -253,8 +253,24 @@
       "color": "black",
       "childPointers": ["G1"]
     },
-    {
+     {
       "id": "F2",
+      "groupId": "F",
+      "name": "deploy a Simple app with secure DB2 connection",
+      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureDB",
+      "color": "black",
+      "childPointers": ["G1"]
+    },
+     {
+      "id": "F3",
+      "groupId": "F",
+      "name": "deploy a Simple app with secure MQ connection",
+      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureMQ",
+      "color": "black",
+      "childPointers": ["G1"]
+    },
+    {
+      "id": "F4",
       "groupId": "F",
       "name": "deploy a Simple app to Liberty",
       "color": "green",
@@ -264,26 +280,10 @@
       "childPointers": ["G1"]
     },
     {
-      "id": "F3",
+      "id": "F5",
       "groupId": "F",
       "name": "deploy a Simple app to Kubernetes",
       "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetes",
-      "color": "black",
-      "childPointers": ["G1"]
-    },
-    {
-      "id": "F4",
-      "groupId": "F",
-      "name": "deploy a Simple app to Kubernetes with secure DB2 connection",
-      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureDB",
-      "color": "black",
-      "childPointers": ["G1"]
-    },
-     {
-      "id": "F5",
-      "groupId": "F",
-      "name": "deploy a Simple app to Kubernetes with secure MQ connection",
-      "docs": "https://ibm.github.io/app-mod-journey/details/deployToKubernetesSecureMQ",
       "color": "black",
       "childPointers": ["G1"]
     },
