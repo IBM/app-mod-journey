@@ -1,4 +1,4 @@
-#Create Liberty image that connects to a Secure MQ
+# Create Liberty image that connects to a Secure MQ
 
 - Enable MQ to be secure. 
 
