@@ -416,15 +416,15 @@
       "id": "L3",
       "groupId": "L",
       "name": "configure app database transaction logging",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-database-transaction-logging",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-to-store-transaction-log-in-database",
       "color": "green",
       "primary": false
     },
     {
       "id": "L4",
       "groupId": "L",
-      "name": "configure app in-memory transaction logging",
-      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-in-memory-transaction-logging ",
+      "name": "configure app file transaction logging",
+      "docs" : "https://ibm.github.io/app-mod-journey/details/sessionPersistenceTransactionLogging#configuring-application-to-store-transaction-log-in-file ",
       "color": "black",
       "primary": false
     }
