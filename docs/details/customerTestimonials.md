@@ -12,9 +12,9 @@ Transformation Advisor has been used by hundreds of customers to accelerate thei
 
 [IBM WebSphere Hybrid Edition (Application Server & Liberty) Reviews & Product Details](https://www.g2.com/products/ibm-websphere-hybrid-edition-application-server-liberty/reviews/ibm-websphere-hybrid-edition-application-server-liberty-review-6971895)
 
-[IBM CIO Organization’s Application Modernization Journey](https://www.ibm.com/cloud/blog/ibm-cio-a-client-zero-to-application-modernization)
+[IBM CIO Organization’s Application Modernization Journey](https://www.ibm.com/think/insights/ibm-cio-a-client-zero-to-application-modernization)
 
-[IBM CIO Organization’s Application Modernization Journey: Tools to Simplify and Accelerate](https://www.ibm.com/cloud/blog/ibm-cio-organizations-application-modernization-journey-tools-to-simplify-and-accelerate)
+[IBM CIO Organization’s Application Modernization Journey: Tools to Simplify and Accelerate](https://www.ibm.com/think/insights/ibm-cio-organizations-application-modernization-journey-tools-to-simplify-and-accelerate)
 
 [Enhancing mission-critical government services](https://www.ibm.com/case-studies/govt-dept-in-morocco)
 
