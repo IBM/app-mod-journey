@@ -406,7 +406,27 @@ class App extends Component {
       translateY: dimensions.height / 2.5,
     });
     let data =  this.populateAllTreeData(this.getEntryFromGeneratedData("A1"));
-    this.setState({data}, () => this.updateStateFromURL());
+    this.setState({data}, () => {
+      this.updateStateFromURL();
+      // Add aria-label to the SVG element for accessibility
+      this.addAriaLabelToSvg();
+    });
+  }
+
+  componentDidUpdate() {
+    // Ensure aria-label is added after any updates
+    this.addAriaLabelToSvg();
+  }
+
+  addAriaLabelToSvg() {
+    // Add aria-label to the react-d3-tree SVG element
+    setTimeout(() => {
+      const svg = document.querySelector('.tree-container svg');
+      if (svg && !svg.getAttribute('aria-label')) {
+        svg.setAttribute('aria-label', 'Application modernization decision tree visualization');
+        svg.setAttribute('role', 'img');
+      }
+    }, 100);
   }
 
   showToc() {
@@ -713,7 +733,7 @@ class App extends Component {
               </React.Fragment>)
               :
               <React.Fragment>
-                <div ref={tc => (this.treeContainer = tc)} className="tree-container">
+                <div ref={tc => (this.treeContainer = tc)} className="tree-container" role="img" aria-label="Application modernization decision tree visualization">
                   <Tree
                     hasInteractiveNodes
                     data={this.state.data}
