@@ -7,7 +7,7 @@
       "root": true,
       "color": "green",
       "primary": true,
-      "childPointers": ["B0","B1","B2","B3","B4","B5","B6"]
+      "childPointers": ["B0","B1","B2","B3","B4","B5","B6","B7"]
     },
     {
       "id": "B0",
@@ -65,6 +65,14 @@
       "primary": false,
       "color": "black",
       "childPointers": ["C9"]
+    },
+    {
+      "id": "B7",
+      "groupId": "B",
+      "name": "from FAQ",
+      "primary": false,
+      "color": "black",
+      "childPointers": ["C10"]
     },
     {
       "id": "C0",
@@ -152,6 +160,14 @@
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",
       "childPointers": ["D1","D2","D3"]
+    },
+    {
+      "id": "C10",
+      "groupId": "C",
+      "name": "using FAQ Documentation",
+      "primary": true,
+      "color": "green",
+      "docs": "https://ibm.github.io/app-mod-journey/details/faq"
     },
     {
       "id": "D1",
