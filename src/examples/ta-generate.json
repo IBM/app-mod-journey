@@ -104,7 +104,7 @@
     {
       "id": "C4",
       "groupId": "C",
-      "name": "using AMA Data Collector",
+      "name": "using Discovery Tool",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands",
@@ -129,7 +129,7 @@
     {
       "id": "C7",
       "groupId": "C",
-      "name": "using AMA Data Collector (WebLogic)",
+      "name": "using Discovery Tool (WebLogic)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#weblogic",
@@ -138,7 +138,7 @@
     {
       "id": "C8",
       "groupId": "C",
-      "name": "using AMA Data Collector (JBoss)",
+      "name": "using Discovery Tool (JBoss)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#jboss",
@@ -147,7 +147,7 @@
     {
       "id": "C9",
       "groupId": "C",
-      "name": "using AMA Data Collector (Tomcat)",
+      "name": "using Discovery Tool (Tomcat)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",
