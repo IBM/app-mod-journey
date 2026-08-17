@@ -1,6 +1,6 @@
 # Customer Testimonials
 
-Transformation Advisor has been used by hundreds of customers to accelerate their modernization journey. Here are just a few....
+Transformation Advisor/Application Modernization Accelerator has been used by hundreds of customers to accelerate their modernization journey. Here are just a few....
 
 ## Testimonials, References and Use Cases  
 

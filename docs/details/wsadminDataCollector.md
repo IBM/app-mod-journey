@@ -1,6 +1,6 @@
-# Generating reports for Transformation Advisor with the wsadmin command
+# Generating reports for Application Modernization Accelerator with the wsadmin command
 
- - The **wsadmin** command available with WebSphere has a built-in option for scanning your installed applications and generating a set of zip files that can be uploaded directly into Transformation Advisor.    
+ - The **wsadmin** command available with WebSphere has a built-in option for scanning your installed applications and generating a set of zip files that can be uploaded directly into Application Modernization Accelerator.    
  - The availability of this command depends on the WebSphere version and Fix Pack you are running.   
    - **WebSphere 8**: Version 8.5.5.23 or later
    - **WebSphere 9**: Version 9.0.5.14 or later

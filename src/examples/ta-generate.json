@@ -30,7 +30,7 @@
       "name": "from Liberty",
       "primary": false,
       "color": "black",
-      "docs": "https://www.ibm.com/docs/en/cta?topic=started-collecting-websphere-liberty-open-liberty",
+      "docs": "https://www.ibm.com/docs/en/ama?topic=accelerator-collecting-websphere-liberty-open-liberty",
       "childPointers": ["C1","C2","C3","C4","C5"]
     },
     {
@@ -104,7 +104,7 @@
     {
       "id": "C4",
       "groupId": "C",
-      "name": "using TA Data Collector",
+      "name": "using AMA Data Collector",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands",
@@ -123,13 +123,13 @@
       "id": "C6",
       "groupId": "C",
       "name": "using Backup server configuration",
-      "docs": "https://www.ibm.com/docs/en/cta?topic=collector-running-dc-copy-was-config",
+      "docs": "https://www.ibm.com/docs/en/ama?topic=collector-running-dc-copy-was-config",
       "childPointers": ["D1","D2","D3"]
     },
     {
       "id": "C7",
       "groupId": "C",
-      "name": "using TA Data Collector (WebLogic)",
+      "name": "using AMA Data Collector (WebLogic)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#weblogic",
@@ -138,7 +138,7 @@
     {
       "id": "C8",
       "groupId": "C",
-      "name": "using TA Data Collector (JBoss)",
+      "name": "using AMA Data Collector (JBoss)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#jboss",
@@ -147,7 +147,7 @@
     {
       "id": "C9",
       "groupId": "C",
-      "name": "using TA Data Collector (Tomcat)",
+      "name": "using AMA Data Collector (Tomcat)",
       "primary": true,
       "color": "green",
       "docs": "https://ibm.github.io/app-mod-journey/details/WebSphere_DataCollectorCommands#tomcat",

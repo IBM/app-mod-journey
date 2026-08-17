@@ -1,15 +1,15 @@
 
-##  Bulk data upload in Transformation Advisor
+##  Bulk data upload in Application Modernization Accelerator
 
-In this document you will learn how to prepare data for bulk upload and use the Transformation Advisor APIs to execute the upload.    
+In this document you will learn how to prepare data for bulk upload and use the Application Modernization Accelerator APIs to execute the upload.    
 
 The execution of the Data Collector will result in a number of zip files being produced
  - One for each profile scanned
  - One for each shared library location discovered
 
-Transformation Advisor will try to upload the results of the collection automatically by default.    
+Application Modernization Accelerator will try to upload the results of the collection automatically by default.    
 However, there are a number of common scenarios where this will not happen
- - There is no valid network path between where the collection takes place and where Transformation Advisor resides
+ - There is no valid network path between where the collection takes place and where Application Modernization Accelerator resides
  - You are gathering together the results of multiple different collections from multiple different servers
 
 Files can be uploaded via the UI one at a time, so if you have even a handful of files the bulk upload feature will be faster
@@ -24,7 +24,7 @@ You are now ready to execute the bulk upload
 
 ### Executing bulk upload
 You will use the APIs interface to upload your bulk data zip.
-Instructions on how to use the APIs can be found [here](https://www.ibm.com/docs/en/cta?topic=started-using-transformation-advisor-apis)
+Instructions on how to use the APIs can be found [here](https://www.ibm.com/docs/en/ama?topic=accelerator-using-application-modernization-apis)
 
 The bulk upload happens in two stages
  - Upload of the file to the server
@@ -46,7 +46,7 @@ The bulk upload happens in two stages
    1. This is an asynchronous process, you will get a response with the status URL once the file has been uploaded.
 8. Copy the status URL into your browser to see the progress of the upload. It will not refresh automatically, so you need to refresh to see the progress update.
 9. Once the status reaches 'Bulk upload complete' you are done.
-10. Open Transformation Advisor and navigate to the newly created workspace that will have all of your data
+10. Open Application Modernization Accelerator and navigate to the newly created workspace that will have all of your data
 
 
 

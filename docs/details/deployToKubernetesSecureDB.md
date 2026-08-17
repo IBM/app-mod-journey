@@ -6,7 +6,7 @@
 - Get the certificate from the DB2 key file (key file is key.p12)
   -    /opt/ibm/db2/V11.1/gskit/bin/gsk8capicmd_64 -cert -extract -db "key.p12" -pw "passw0rd" -label "jcdb2p12" -target "db2.arm"
  
-- Download the Migration bundle from Transformation Advisor
+- Download the Migration bundle from Application Modernization Accelerator
 
 - Place the application binary into the target directory and remove the placeholder file
 

@@ -1,15 +1,15 @@
-# Understanding Transformation Advisor exported reports
+# Understanding Application Modernization Accelerator exported reports
 
-- TA has a number of reports that you can export to get different views on your modernization data
+- AMA has a number of reports that you can export to get different views on your modernization data
 - Many of the reports are provided in csv format to allow you to manipulate them in spreadhseets
 
-## How to download Transformation Advisor Export Reports
+## How to download Application Modernization Accelerator Export Reports
 
  - From the **Recommedations** page, click the export icon in the top right of the summary table
  - Check the box 'Summary of workspace' and 'Application details'
  - Click the Export Button
 
-Transformation Advisor will download the reports with a name <Workspace name>_<migration target>_report.zip
+Application Modernization Accelerator will download the reports with a name <Workspace name>_<migration target>_report.zip
 
 Unzip the report (if using a windows system, then use 7 zip to extract the reports)
 

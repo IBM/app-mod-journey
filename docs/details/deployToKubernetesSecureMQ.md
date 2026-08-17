@@ -7,7 +7,7 @@
   -   /opt/mqm/bin/runmqakm -cert -extract -db key.kdb -label ibmwebspheremqqm_mdb -file qm.arm -stashed
 
 
-- Download the Migration bundle from Transformation Advisor
+- Download the Migration bundle from Application Modernization Accelerator
 
 - Place the application binary into the target directory and remove the placeholder file
 
@@ -19,7 +19,7 @@
   -   In the jmsActivation spec -  change transportType="BINDINGS_THEN_CLIENT" to transportType="CLIENT"
   -   In the jmsActivation spec - add sslCipherSuite="SSL_RSA_WITH_AES_128_CBC_SHA256"
 
-  -   Also needed to add information about queues  (not part of the server xml collected by TA)
+  -   Also needed to add information about queues  (not part of the server xml collected by AMA)
 ````
 <jmsQueue id="jms/SampleMDBQueue" jndiName="jms/SampleMDBQueue"> <properties.mqJmsRa baseQueueName="Q_MDB" baseQueueManagerName="QM_MDB"/> </jmsQueue>
     <jmsQueueConnectionFactory connectionManagerRef="QueueConnMgr" jndiName="jms/SampleMDBConnectionFactory">
