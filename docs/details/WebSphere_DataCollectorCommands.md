@@ -1,6 +1,6 @@
 # How to collect data
 
-The data collector in Application Modernization Accelerator gathers configuration and application information from supported middleware environments to generate detailed modernization assessments.
+The Discovery Tool in Application Modernization Accelerator gathers configuration and application information from supported middleware environments to generate detailed modernization assessments.
 
 Take one of the following approaches to collect data for Application Modernization Accelerator.
 

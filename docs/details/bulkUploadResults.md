@@ -3,7 +3,7 @@
 
 In this document you will learn how to prepare data for bulk upload and use the Application Modernization Accelerator APIs to execute the upload.    
 
-The execution of the Data Collector will result in a number of zip files being produced
+The execution of the Discovery Tool will result in a number of zip files being produced
  - One for each profile scanned
  - One for each shared library location discovered
 
