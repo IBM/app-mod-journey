@@ -4,6 +4,8 @@ Transformation Advisor/Application Modernization Accelerator has been used by hu
 
 ## Testimonials, References and Use Cases  
 
+[How Mitsubishi Motors mapped 170 Java applications for a low-disruption move to IBM WebSphere Liberty](https://www.ibm.com/new/product-blog/how-mitsubishi-motors-mapped-170-java-applications-for-a-low-disruption-move-to-ibm-websphere-liberty)
+
 [Application Modernization at Discover with Liberty Runtime: The Need to Modernize](https://www.ibm.com/blog/application-modernization-at-discover-the-need-to-modernize/)
 
 [Modernizing legacy applications](https://www.linkedin.com/pulse/modernizing-legacy-applications-kathryn-guarini/)
