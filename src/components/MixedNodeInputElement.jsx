@@ -58,13 +58,6 @@ function MixedNodeElement({
     }
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      handleSelect(event);
-    }
-  };
-
   const nodeNameFontSize = (nodeData.name && nodeData.name.length > 35) ? '22px' : '25px';
 
   return (
@@ -73,13 +66,8 @@ function MixedNodeElement({
         fill="white"
         r={20}
         onClick={handleSelect}
-        onKeyDown={handleKeyDown}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        role="button"
-        tabIndex={0}
-        aria-pressed={Boolean(nodeData.primary)}
-        aria-label={`Select ${nodeData.name || 'node'}`}
         style={{ cursor: 'pointer' }}
       />
 
@@ -101,19 +89,14 @@ function MixedNodeElement({
             style={{ backgroundColor: 'white', cursor: 'pointer' }}
           >
             <span
-              onKeyDown={handleKeyDown}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              role="button"
-              tabIndex={0}
-              aria-pressed={Boolean(nodeData.primary)}
               style={{
                 backgroundColor: 'white',
                 color: nodeData.primary ? 'black' : 'grey',
                 fontWeight: nodeData.primary ? '700' : '400',
                 fontSize: nodeNameFontSize,
                 cursor: 'pointer',
-                outlineOffset: '2px',
               }}
             >
               {nodeData.name}

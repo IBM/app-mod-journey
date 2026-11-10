@@ -23,33 +23,11 @@ describe('MixedNodeInputElement component', () => {
       </svg>
     );
 
-    const nodeButton = screen.getByText('collect data');
-    expect(nodeButton).toBeInTheDocument();
-    expect(nodeButton).toHaveAttribute('role', 'button');
-    expect(nodeButton).toHaveAttribute('aria-pressed', 'true');
+    const nodeText = screen.getByText('collect data');
+    expect(nodeText).toBeInTheDocument();
 
-    fireEvent.click(nodeButton);
+    fireEvent.click(nodeText);
     expect(changePrimary).toHaveBeenCalledWith('collect data');
-  });
-
-  it('triggers selection when pressing Enter or Space key', () => {
-    const changePrimary = vi.fn();
-    const appState = { changePrimary, playVideo: vi.fn() };
-    const nodeData = { name: 'from Application Binaries', primary: false };
-
-    render(
-      <svg>
-        <MixedNodeElement appState={appState} nodeData={nodeData} />
-      </svg>
-    );
-
-    const nodeButton = screen.getByText('from Application Binaries');
-
-    fireEvent.keyDown(nodeButton, { key: 'Enter' });
-    expect(changePrimary).toHaveBeenCalledWith('from Application Binaries');
-
-    fireEvent.keyDown(nodeButton, { key: ' ' });
-    expect(changePrimary).toHaveBeenCalledTimes(2);
   });
 
   it('shows description tooltip on hover when enableDescriptions is true', () => {

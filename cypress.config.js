@@ -9,8 +9,11 @@
 
 import { defineConfig } from 'cypress';
 import { createRequire } from 'module';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 const require = createRequire(import.meta.url);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   defaultCommandTimeout: 12000,
@@ -21,7 +24,8 @@ export default defineConfig({
   e2e: {
     experimentalRunAllSpecs: true,
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config);
+      const plugin = require(path.join(__dirname, 'cypress/plugins/index.js'));
+      return plugin(on, config);
     },
     baseUrl: process.env.CYPRESS_BASE_URL || 'http://127.0.0.1:3000'
   },
