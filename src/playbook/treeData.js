@@ -75,3 +75,22 @@ export function getPrimaryIds(tree) {
   visit(tree);
   return ids;
 }
+
+/** Find the 1-based depth of a named node within a built tree. */
+export function getNodeDepth(tree, name, currentDepth = 1) {
+  if (!tree) {
+    return null;
+  }
+  if (tree.name === name) {
+    return currentDepth;
+  }
+  if (Array.isArray(tree.children)) {
+    for (const child of tree.children) {
+      const found = getNodeDepth(child, name, currentDepth + 1);
+      if (found !== null) {
+        return found;
+      }
+    }
+  }
+  return null;
+}

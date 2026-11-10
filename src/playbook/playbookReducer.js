@@ -1,5 +1,5 @@
 import taGenerate from '../examples/ta-generate.json';
-import { buildTree, cloneEntries, findEntryById, pruneEntries, setPrimaryInGroup } from './treeData';
+import { buildTree, cloneEntries, findEntryById, getNodeDepth, pruneEntries, setPrimaryInGroup } from './treeData';
 import { DEFAULT_DEPTH, parseUrlState } from './urlState';
 
 const EXPANDED_DEPTH = 50;

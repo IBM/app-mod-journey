@@ -14,6 +14,7 @@ import VideoLink from './VideoLink';
 function MixedNodeElement({
   appState,
   nodeData = {},
+  triggerNodeToggle,
   foreignObjectProps = {},
   enableDescriptions = false,
 }) {
@@ -45,9 +46,15 @@ function MixedNodeElement({
     }
   };
 
-  const handleSelect = () => {
+  const handleSelect = (e) => {
+    if (e && typeof e.stopPropagation === 'function') {
+      e.stopPropagation();
+    }
     if (appState && typeof appState.changePrimary === 'function' && nodeData.name) {
       appState.changePrimary(nodeData.name);
+    }
+    if (typeof triggerNodeToggle === 'function') {
+      triggerNodeToggle();
     }
   };
 
