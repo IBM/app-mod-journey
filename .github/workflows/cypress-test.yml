@@ -14,10 +14,13 @@ jobs:
           cache: npm
       - name: Install root dependencies
         run: npm ci
+      - name: Run Vitest unit & component tests
+        run: npm test
       - name: Install Cypress and run tests
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
           start: npm start
+          wait-on: 'http://localhost:3000'
           browser: chrome
           config-file: cypress.config.js
