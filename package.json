@@ -8,7 +8,7 @@
     "start": "vite",
     "start-fyre": "vite",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --port 3000 --host 0.0.0.0 --outDir docs/tree",
     "test": "vitest run",
     "test:watch": "vitest",
     "predeploy": "npm run build",

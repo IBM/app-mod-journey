@@ -20,8 +20,8 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           build: npm run build
-          start: npm start
-          wait-on: 'http-get://127.0.0.1:3000'
+          start: npm run preview
+          wait-on: 'http://127.0.0.1:3000'
           wait-on-timeout: 120
           browser: chrome
           config-file: cypress.config.js
