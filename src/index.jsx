@@ -6,7 +6,7 @@ import App from './App';
 import './index.css';
 
 const ReactGA = _ReactGA.default || _ReactGA;
-if (ReactGA && typeof ReactGA.initialize === 'function') {
+if (import.meta.env.PROD && ReactGA && typeof ReactGA.initialize === 'function') {
   ReactGA.initialize('G-KNYEBYGTV8');
 }
 
