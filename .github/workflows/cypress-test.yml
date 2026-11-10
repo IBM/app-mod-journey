@@ -21,7 +21,6 @@ jobs:
         with:
           build: npm run build
           start: npm run preview
-          wait-on: 'http-get://127.0.0.1:3000'
-          wait-on-timeout: 120
+          wait-on: 'npx wait-on -t 120000 http-get://127.0.0.1:3000'
           browser: chrome
           config-file: cypress.config.js
