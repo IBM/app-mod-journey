@@ -53,6 +53,9 @@ function MixedNodeElement({
     if (appState && typeof appState.changePrimary === 'function' && nodeData.name) {
       appState.changePrimary(nodeData.name);
     }
+    if (typeof triggerNodeToggle === 'function') {
+      triggerNodeToggle();
+    }
   };
 
   const handleKeyDown = (event) => {
