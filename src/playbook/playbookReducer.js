@@ -1,5 +1,5 @@
 import taGenerate from '../examples/ta-generate.json';
-import { buildTree, cloneEntries, findEntryById, pruneEntries, setPrimaryInGroup } from './treeData';
+import { buildTree, cloneEntries, findEntryById, getNodeDepth, pruneEntries, setPrimaryInGroup } from './treeData';
 import { DEFAULT_DEPTH, parseUrlState } from './urlState';
 
 const EXPANDED_DEPTH = 50;
@@ -59,17 +59,21 @@ export function playbookReducer(state, action) {
     case 'hydrate':
       return hydrate(action.search, action.size);
 
-    // Select a node (and so deselect the others in its group). depth is optional.
+    // Select a node (and so deselect the others in its group).
+    // Calculates node depth to advance initialDepth for progressive disclosure.
     case 'selectNode': {
       const entries = setPrimaryInGroup(state.entries, action.name);
       if (entries === state.entries) {
         return state;
       }
+      const tree = buildTree(entries);
+      const nodeDepth = typeof action.depth === 'number' ? action.depth : getNodeDepth(tree, action.name);
+      const nextDepth = nodeDepth || state.initialDepth;
       return {
         ...state,
         entries,
-        tree: buildTree(entries),
-        initialDepth: action.depth ?? state.initialDepth,
+        tree,
+        initialDepth: state.showingAll ? state.initialDepth : nextDepth,
         urlVersion: state.urlVersion + 1,
       };
     }

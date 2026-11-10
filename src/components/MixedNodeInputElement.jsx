@@ -14,6 +14,7 @@ import VideoLink from './VideoLink';
 function MixedNodeElement({
   appState,
   nodeData = {},
+  triggerNodeToggle,
   foreignObjectProps = {},
   enableDescriptions = false,
 }) {
@@ -45,7 +46,10 @@ function MixedNodeElement({
     }
   };
 
-  const handleSelect = () => {
+  const handleSelect = (e) => {
+    if (e && typeof e.stopPropagation === 'function') {
+      e.stopPropagation();
+    }
     if (appState && typeof appState.changePrimary === 'function' && nodeData.name) {
       appState.changePrimary(nodeData.name);
     }
@@ -54,7 +58,7 @@ function MixedNodeElement({
   const handleKeyDown = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      handleSelect();
+      handleSelect(event);
     }
   };
 
@@ -88,9 +92,12 @@ function MixedNodeElement({
             paddingBottom: '1rem',
           }}
         >
-          <div className="node-textContainer" style={{ backgroundColor: 'white' }}>
+          <div
+            className="node-textContainer"
+            onClick={handleSelect}
+            style={{ backgroundColor: 'white', cursor: 'pointer' }}
+          >
             <span
-              onClick={handleSelect}
               onKeyDown={handleKeyDown}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -108,7 +115,11 @@ function MixedNodeElement({
             >
               {nodeData.name}
             </span>
-            <div style={{ backgroundColor: 'white' }}>
+            {/* Stop propagation so clicking doc/video links does not trigger node selection */}
+            <div
+              style={{ backgroundColor: 'white' }}
+              onClick={(e) => e.stopPropagation()}
+            >
               <span style={{ fontSize: 22, fontWeight: 500 }}>
                 {nodeData.docs ? (
                   <a target="_blank" rel="noopener noreferrer" href={nodeData.docs}>

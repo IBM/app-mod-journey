@@ -1,5 +1,5 @@
 import taGenerate from '../examples/ta-generate.json';
-import { buildTree, cloneEntries, getPrimaryIds, pruneEntries, setPrimaryInGroup } from './treeData';
+import { buildTree, cloneEntries, getNodeDepth, getPrimaryIds, pruneEntries, setPrimaryInGroup } from './treeData';
 
 // root -> (a1 | a2) in group "A"; a1 -> (b1 | b2) in group "B"
 const fixture = () => [
@@ -82,6 +82,27 @@ describe('pruneEntries', () => {
 describe('getPrimaryIds', () => {
   test('lists the selected nodes depth first', () => {
     expect(getPrimaryIds(buildTree(fixture(), 'R'))).toEqual(['R', 'a1', 'b1']);
+  });
+});
+
+describe('getNodeDepth', () => {
+  const tree = buildTree(fixture(), 'R');
+
+  test('returns 1 for root', () => {
+    expect(getNodeDepth(tree, 'root')).toBe(1);
+  });
+
+  test('returns 2 for direct children', () => {
+    expect(getNodeDepth(tree, 'first')).toBe(2);
+    expect(getNodeDepth(tree, 'second')).toBe(2);
+  });
+
+  test('returns 3 for grandchild', () => {
+    expect(getNodeDepth(tree, 'leaf one')).toBe(3);
+  });
+
+  test('returns null for non-existent node', () => {
+    expect(getNodeDepth(tree, 'non-existent')).toBeNull();
   });
 });
 

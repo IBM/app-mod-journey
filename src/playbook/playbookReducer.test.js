@@ -52,7 +52,7 @@ describe('selectNode', () => {
     expect(primaries(state)).not.toContain('B3');
   });
 
-  test('sets the depth when it is given, and keeps it when it is not', () => {
+  test('sets the depth when it is given, and sets node depth for progressive disclosure when not', () => {
     expect(playbookReducer(hydrate(), { type: 'selectNode', name: 'from Liberty', depth: 4 }).initialDepth).toBe(4);
     expect(playbookReducer(hydrate(), { type: 'selectNode', name: 'from Liberty' }).initialDepth).toBe(2);
   });

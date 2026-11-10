@@ -2,6 +2,7 @@ import React from 'react';
 import Tree from 'react-d3-tree';
 import MixedNodeInputElement from './MixedNodeInputElement';
 import useSvgAriaLabel from '../hooks/useSvgAriaLabel';
+import { getPrimaryIds } from '../playbook/treeData';
 
 const NODE_SIZE = { x: 200, y: 150 };
 const TREE_LABEL = 'Application modernization decision tree visualization';
@@ -60,7 +61,9 @@ export default function PlaybookTree({ containerRef, tree, translate, initialDep
 
   return (
     <div ref={containerRef} className="tree-container" role="img" aria-label={TREE_LABEL}>
+      {/* Re-keying when depth or selection changes resets react-d3-tree's internal D3 cache for clean progressive disclosure */}
       <Tree
+        key={`tree-${initialDepth}-${tree ? getPrimaryIds(tree).join('-') : ''}`}
         hasInteractiveNodes
         data={tree}
         renderCustomNodeElement={renderNode}
