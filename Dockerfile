@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:24
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000
-CMD [ "npm", "run", "start-fyre" ]
+CMD [ "npm", "start" ]
 
-#Due to the use of react-scripts when you run this image you need to add -it, so the command looks like this:
-#podman run -it -p 3000:3000 -d localhost/wt1
+# To run this container:
+# podman run -p 3000:3000 -d localhost/wt1
