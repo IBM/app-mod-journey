@@ -6,12 +6,15 @@
     background-color: #000;
     color: #fff;
     min-height: 55px;
-
 }
 .title-wrapper {
     display: flex;
     align-items: center;
-    display: flex;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    font: inherit;
     cursor: pointer;
 }
 .title-header {
@@ -21,14 +24,27 @@
     letter-spacing: .5px;
     color: #fff;
 }
-.additional-header-links{
-  font-size: 16px;
+.additional-header-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 16px;
 }
-.additional-header-links span a{
-    height: 100%;
+.additional-header-links a,
+.additional-header-links .header-link-button {
     padding: 0 20px;
     border: none;
     background-color: transparent;
     color: #fff;
+    font: inherit;
+    text-decoration: none;
     white-space: nowrap;
+    cursor: pointer;
+}
+.title-wrapper:focus-visible,
+.additional-header-links a:focus-visible,
+.additional-header-links .header-link-button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
 }

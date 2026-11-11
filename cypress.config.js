@@ -7,9 +7,15 @@
  *
  ****************************************/
 
-const { defineConfig } = require('cypress');
+import { defineConfig } from 'cypress';
+import { createRequire } from 'module';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-module.exports = defineConfig({
+const require = createRequire(import.meta.url);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default defineConfig({
   defaultCommandTimeout: 12000,
   loadMoreWaitTime: 0,
   getSelectionsWaitTime: 500,
@@ -17,11 +23,17 @@ module.exports = defineConfig({
   video: true,
   e2e: {
     experimentalRunAllSpecs: true,
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config);
+      const plugin = require(path.join(__dirname, 'cypress/plugins/index.js'));
+      return plugin(on, config);
     },
-    baseUrl: 'http://localhost:3000'
+    baseUrl: process.env.CYPRESS_BASE_URL || 'http://127.0.0.1:3000'
+  },
+  component: {
+    devServer: {
+      framework: 'react',
+      bundler: 'vite'
+    },
+    specPattern: 'src/**/*.cy.{js,jsx,ts,tsx}'
   }
 });
